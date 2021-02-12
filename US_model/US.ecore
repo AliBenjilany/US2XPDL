@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="UserStories" nsURI="http://userstories.com" nsPrefix="UserStories">
+  <eClassifiers xsi:type="ecore:EClass" name="ProductBacklog">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="userstories" lowerBound="1"
+        upperBound="-1" eType="#//UserStory" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UserStory">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tasks" lowerBound="1" upperBound="-1"
+        eType="#//Task" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="person" lowerBound="1"
+        eType="#//Person" eOpposite="#//Person/userstories"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Task">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="teammembers" lowerBound="1"
+        upperBound="-1" eType="#//TeamMember" eOpposite="#//TeamMember/tasks"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exception" eType="#//Exception"
+        eOpposite="#//Exception/tasks"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="next" eType="#//Task" eOpposite="#//Task/last"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="last" eType="#//Task" eOpposite="#//Task/next"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Person">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="userstories" upperBound="-1"
+        eType="#//UserStory" eOpposite="#//UserStory/person"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TeamMember" eSuperTypes="#//Person">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tasks" upperBound="-1"
+        eType="#//Task" eOpposite="#//Task/teammembers"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Condition" eSuperTypes="#//Exception"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Event" eSuperTypes="#//Exception"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Exception" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tasks" upperBound="-1"
+        eType="#//Task" eOpposite="#//Task/exception"/>
+  </eClassifiers>
+</ecore:EPackage>
