@@ -7,5 +7,7 @@ Une User Story est une description informelle d'un besoin utilisateur qui suis s
 
 XPDL est la représentation XML du BPMN, qui est un langage de modélisation orienté processus métiers.
 
-L'objectif ultime étant de passer d'une spécification informelle sous forme textuelle, à une specification semi-formelle.
+L'objectif ultime étant de passer d'une spécification informelle sous forme textuelle, à une specification semi-formelle. 
+
+Les règles de transformations sont réalisées sous le langage ATL (Atlas Transformation Language)
 
