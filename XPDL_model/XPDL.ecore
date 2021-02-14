@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="xpdl" nsPrefix="xpdl">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="xpdl" nsURI="http://xpdl.com" nsPrefix="xpdl">
   <eClassifiers xsi:type="ecore:EClass" name="Process">
     <eStructuralFeatures xsi:type="ecore:EReference" name="pool" upperBound="-1" eType="#//Pool"
         containment="true"/>

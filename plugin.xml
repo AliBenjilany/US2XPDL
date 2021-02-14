@@ -14,4 +14,12 @@
             genModel="US_model/US.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated XPDL -->
+      <package
+            uri="http://xpdl.com"
+            class="xpdl.XpdlPackage"
+            genModel="XPDL_model/XPDL.genmodel"/>
+   </extension>
+
 </plugin>
