@@ -2,8 +2,63 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="xpdl" nsURI="http://xpdl.com" nsPrefix="xpdl">
   <eClassifiers xsi:type="ecore:EClass" name="Process">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="pool" upperBound="-1" eType="#//Pool"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Pools" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//Pool"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Objective" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="No objective set for this process"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Pool"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Pool">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Lanes" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//Lane"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Lane">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="FlowObjects" lowerBound="1"
+        upperBound="-1" eType="#//FlowObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FlowObject" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inConnections" ordered="false"
+        upperBound="-1" eType="#//SequenceFlow" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outConnections" ordered="false"
+        upperBound="-1" eType="#//SequenceFlow" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SequenceFlow">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Source" lowerBound="1"
+        eType="#//FlowObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Target" lowerBound="1"
+        eType="#//FlowObject"/>
+  </eClassifiers>
+  <eSubpackages name="Activities" nsURI="com.us2xpdl.Activities" nsPrefix="Activities">
+    <eClassifiers xsi:type="ecore:EClass" name="Activity" abstract="true" eSuperTypes="#//FlowObject">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="#//Activities/Activity"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Call" eSuperTypes="#//Activities/Activity"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Transaction" eSuperTypes="#//Activities/Activity"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SubProcess" eSuperTypes="#//Activities/Activity">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="SubProcess" lowerBound="1"
+          eType="#//Process"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="Events" nsURI="com.us2xpdl.Events" nsPrefix="Events">
+    <eClassifiers xsi:type="ecore:EClass" name="Event" abstract="true" eSuperTypes="#//FlowObject">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EventStart" eSuperTypes="#//Events/Event"/>
+    <eClassifiers xsi:type="ecore:EClass" name="EventIntermediate" eSuperTypes="#//Events/Event"/>
+    <eClassifiers xsi:type="ecore:EClass" name="EventEnd" eSuperTypes="#//Events/Event"/>
+  </eSubpackages>
+  <eSubpackages name="Gateways" nsURI="com.us2xpdl.Gateways" nsPrefix="Gateways">
+    <eClassifiers xsi:type="ecore:EClass" name="Gateway" abstract="true" eSuperTypes="#//FlowObject">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Exclusive" eSuperTypes="#//Gateways/Gateway"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Inclusive" eSuperTypes="#//Gateways/Gateway"/>
+  </eSubpackages>
 </ecore:EPackage>
