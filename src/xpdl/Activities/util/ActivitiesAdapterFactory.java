@@ -1,6 +1,6 @@
 /**
  */
-package xpdl.util;
+package xpdl.Activities.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -9,27 +9,26 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
+import xpdl.Activities.*;
+
 import xpdl.FlowObject;
-import xpdl.Lane;
-import xpdl.Pool;
-import xpdl.XpdlPackage;
 
 /**
  * <!-- begin-user-doc -->
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see xpdl.XpdlPackage
+ * @see xpdl.Activities.ActivitiesPackage
  * @generated
  */
-public class XpdlAdapterFactory extends AdapterFactoryImpl {
+public class ActivitiesAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static XpdlPackage modelPackage;
+	protected static ActivitiesPackage modelPackage;
 
 	/**
 	 * Creates an instance of the adapter factory.
@@ -37,9 +36,9 @@ public class XpdlAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public XpdlAdapterFactory() {
+	public ActivitiesAdapterFactory() {
 		if (modelPackage == null) {
-			modelPackage = XpdlPackage.eINSTANCE;
+			modelPackage = ActivitiesPackage.eINSTANCE;
 		}
 	}
 
@@ -68,19 +67,27 @@ public class XpdlAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected XpdlSwitch<Adapter> modelSwitch =
-		new XpdlSwitch<Adapter>() {
+	protected ActivitiesSwitch<Adapter> modelSwitch =
+		new ActivitiesSwitch<Adapter>() {
 			@Override
-			public Adapter caseProcess(xpdl.Process object) {
-				return createProcessAdapter();
+			public Adapter caseActivity(Activity object) {
+				return createActivityAdapter();
 			}
 			@Override
-			public Adapter casePool(Pool object) {
-				return createPoolAdapter();
+			public Adapter caseTask(Task object) {
+				return createTaskAdapter();
 			}
 			@Override
-			public Adapter caseLane(Lane object) {
-				return createLaneAdapter();
+			public Adapter caseCall(Call object) {
+				return createCallAdapter();
+			}
+			@Override
+			public Adapter caseTransaction(Transaction object) {
+				return createTransactionAdapter();
+			}
+			@Override
+			public Adapter caseSubProcess(SubProcess object) {
+				return createSubProcessAdapter();
 			}
 			@Override
 			public Adapter caseFlowObject(FlowObject object) {
@@ -107,44 +114,72 @@ public class XpdlAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link xpdl.Process <em>Process</em>}'.
+	 * Creates a new adapter for an object of class '{@link xpdl.Activities.Activity <em>Activity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see xpdl.Process
+	 * @see xpdl.Activities.Activity
 	 * @generated
 	 */
-	public Adapter createProcessAdapter() {
+	public Adapter createActivityAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link xpdl.Pool <em>Pool</em>}'.
+	 * Creates a new adapter for an object of class '{@link xpdl.Activities.Task <em>Task</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see xpdl.Pool
+	 * @see xpdl.Activities.Task
 	 * @generated
 	 */
-	public Adapter createPoolAdapter() {
+	public Adapter createTaskAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link xpdl.Lane <em>Lane</em>}'.
+	 * Creates a new adapter for an object of class '{@link xpdl.Activities.Call <em>Call</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see xpdl.Lane
+	 * @see xpdl.Activities.Call
 	 * @generated
 	 */
-	public Adapter createLaneAdapter() {
+	public Adapter createCallAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link xpdl.Activities.Transaction <em>Transaction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see xpdl.Activities.Transaction
+	 * @generated
+	 */
+	public Adapter createTransactionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link xpdl.Activities.SubProcess <em>Sub Process</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see xpdl.Activities.SubProcess
+	 * @generated
+	 */
+	public Adapter createSubProcessAdapter() {
 		return null;
 	}
 
@@ -174,4 +209,4 @@ public class XpdlAdapterFactory extends AdapterFactoryImpl {
 		return null;
 	}
 
-} //XpdlAdapterFactory
+} //ActivitiesAdapterFactory

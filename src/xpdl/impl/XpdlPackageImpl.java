@@ -2,12 +2,28 @@
  */
 package xpdl.impl;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import xpdl.Activities.ActivitiesPackage;
+
+import xpdl.Activities.impl.ActivitiesPackageImpl;
+
+import xpdl.Events.EventsPackage;
+
+import xpdl.Events.impl.EventsPackageImpl;
+
+import xpdl.FlowObject;
+
+import xpdl.Gateways.GatewaysPackage;
+
+import xpdl.Gateways.impl.GatewaysPackageImpl;
+
+import xpdl.Lane;
 import xpdl.Pool;
 import xpdl.XpdlFactory;
 import xpdl.XpdlPackage;
@@ -32,6 +48,20 @@ public class XpdlPackageImpl extends EPackageImpl implements XpdlPackage {
 	 * @generated
 	 */
 	private EClass poolEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass laneEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass flowObjectEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -80,11 +110,25 @@ public class XpdlPackageImpl extends EPackageImpl implements XpdlPackage {
 
 		isInited = true;
 
+		// Obtain or create and register interdependencies
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ActivitiesPackage.eNS_URI);
+		ActivitiesPackageImpl theActivitiesPackage = (ActivitiesPackageImpl)(registeredPackage instanceof ActivitiesPackageImpl ? registeredPackage : ActivitiesPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(EventsPackage.eNS_URI);
+		EventsPackageImpl theEventsPackage = (EventsPackageImpl)(registeredPackage instanceof EventsPackageImpl ? registeredPackage : EventsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(GatewaysPackage.eNS_URI);
+		GatewaysPackageImpl theGatewaysPackage = (GatewaysPackageImpl)(registeredPackage instanceof GatewaysPackageImpl ? registeredPackage : GatewaysPackage.eINSTANCE);
+
 		// Create package meta-data objects
 		theXpdlPackage.createPackageContents();
+		theActivitiesPackage.createPackageContents();
+		theEventsPackage.createPackageContents();
+		theGatewaysPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theXpdlPackage.initializePackageContents();
+		theActivitiesPackage.initializePackageContents();
+		theEventsPackage.initializePackageContents();
+		theGatewaysPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theXpdlPackage.freeze();
@@ -110,8 +154,18 @@ public class XpdlPackageImpl extends EPackageImpl implements XpdlPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getProcess_Objective() {
+		return (EAttribute)processEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getProcess_Pool() {
-		return (EReference)processEClass.getEStructuralFeatures().get(0);
+		return (EReference)processEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -122,6 +176,76 @@ public class XpdlPackageImpl extends EPackageImpl implements XpdlPackage {
 	@Override
 	public EClass getPool() {
 		return poolEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPool_Name() {
+		return (EAttribute)poolEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getPool_Lanes() {
+		return (EReference)poolEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getLane() {
+		return laneEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getLane_Name() {
+		return (EAttribute)laneEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getLane_Flowobject() {
+		return (EReference)laneEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getFlowObject() {
+		return flowObjectEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getFlowObject_Target() {
+		return (EReference)flowObjectEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -154,9 +278,19 @@ public class XpdlPackageImpl extends EPackageImpl implements XpdlPackage {
 
 		// Create classes and their features
 		processEClass = createEClass(PROCESS);
+		createEAttribute(processEClass, PROCESS__OBJECTIVE);
 		createEReference(processEClass, PROCESS__POOL);
 
 		poolEClass = createEClass(POOL);
+		createEAttribute(poolEClass, POOL__NAME);
+		createEReference(poolEClass, POOL__LANES);
+
+		laneEClass = createEClass(LANE);
+		createEAttribute(laneEClass, LANE__NAME);
+		createEReference(laneEClass, LANE__FLOWOBJECT);
+
+		flowObjectEClass = createEClass(FLOW_OBJECT);
+		createEReference(flowObjectEClass, FLOW_OBJECT__TARGET);
 	}
 
 	/**
@@ -182,6 +316,16 @@ public class XpdlPackageImpl extends EPackageImpl implements XpdlPackage {
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		ActivitiesPackage theActivitiesPackage = (ActivitiesPackage)EPackage.Registry.INSTANCE.getEPackage(ActivitiesPackage.eNS_URI);
+		EventsPackage theEventsPackage = (EventsPackage)EPackage.Registry.INSTANCE.getEPackage(EventsPackage.eNS_URI);
+		GatewaysPackage theGatewaysPackage = (GatewaysPackage)EPackage.Registry.INSTANCE.getEPackage(GatewaysPackage.eNS_URI);
+
+		// Add subpackages
+		getESubpackages().add(theActivitiesPackage);
+		getESubpackages().add(theEventsPackage);
+		getESubpackages().add(theGatewaysPackage);
+
 		// Create type parameters
 
 		// Set bounds for type parameters
@@ -190,9 +334,19 @@ public class XpdlPackageImpl extends EPackageImpl implements XpdlPackage {
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(processEClass, xpdl.Process.class, "Process", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProcess_Pool(), this.getPool(), null, "pool", null, 0, -1, xpdl.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProcess_Objective(), ecorePackage.getEString(), "Objective", "No objective set for this process", 0, 1, xpdl.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProcess_Pool(), this.getPool(), null, "pool", null, 1, -1, xpdl.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(poolEClass, Pool.class, "Pool", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPool_Name(), ecorePackage.getEString(), "Name", null, 1, 1, Pool.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getPool_Lanes(), this.getLane(), null, "lanes", null, 1, -1, Pool.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(laneEClass, Lane.class, "Lane", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLane_Name(), ecorePackage.getEString(), "Name", null, 1, 1, Lane.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getLane_Flowobject(), this.getFlowObject(), null, "flowobject", null, 1, -1, Lane.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(flowObjectEClass, FlowObject.class, "FlowObject", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getFlowObject_Target(), this.getFlowObject(), null, "target", null, 0, -1, FlowObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

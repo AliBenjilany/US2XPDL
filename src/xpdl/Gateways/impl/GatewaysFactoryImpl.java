@@ -1,6 +1,6 @@
 /**
  */
-package xpdl.impl;
+package xpdl.Gateways.impl;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -10,10 +10,7 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import xpdl.Lane;
-import xpdl.Pool;
-import xpdl.XpdlFactory;
-import xpdl.XpdlPackage;
+import xpdl.Gateways.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,24 +18,24 @@ import xpdl.XpdlPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class XpdlFactoryImpl extends EFactoryImpl implements XpdlFactory {
+public class GatewaysFactoryImpl extends EFactoryImpl implements GatewaysFactory {
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static XpdlFactory init() {
+	public static GatewaysFactory init() {
 		try {
-			XpdlFactory theXpdlFactory = (XpdlFactory)EPackage.Registry.INSTANCE.getEFactory(XpdlPackage.eNS_URI);
-			if (theXpdlFactory != null) {
-				return theXpdlFactory;
+			GatewaysFactory theGatewaysFactory = (GatewaysFactory)EPackage.Registry.INSTANCE.getEFactory(GatewaysPackage.eNS_URI);
+			if (theGatewaysFactory != null) {
+				return theGatewaysFactory;
 			}
 		}
 		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
-		return new XpdlFactoryImpl();
+		return new GatewaysFactoryImpl();
 	}
 
 	/**
@@ -47,7 +44,7 @@ public class XpdlFactoryImpl extends EFactoryImpl implements XpdlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public XpdlFactoryImpl() {
+	public GatewaysFactoryImpl() {
 		super();
 	}
 
@@ -59,9 +56,9 @@ public class XpdlFactoryImpl extends EFactoryImpl implements XpdlFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case XpdlPackage.PROCESS: return createProcess();
-			case XpdlPackage.POOL: return createPool();
-			case XpdlPackage.LANE: return createLane();
+			case GatewaysPackage.PARALLEL: return createParallel();
+			case GatewaysPackage.INCLUSIVE: return createInclusive();
+			case GatewaysPackage.EXCLUSIVE: return createExclusive();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -73,9 +70,9 @@ public class XpdlFactoryImpl extends EFactoryImpl implements XpdlFactory {
 	 * @generated
 	 */
 	@Override
-	public xpdl.Process createProcess() {
-		ProcessImpl process = new ProcessImpl();
-		return process;
+	public Parallel createParallel() {
+		ParallelImpl parallel = new ParallelImpl();
+		return parallel;
 	}
 
 	/**
@@ -84,9 +81,9 @@ public class XpdlFactoryImpl extends EFactoryImpl implements XpdlFactory {
 	 * @generated
 	 */
 	@Override
-	public Pool createPool() {
-		PoolImpl pool = new PoolImpl();
-		return pool;
+	public Inclusive createInclusive() {
+		InclusiveImpl inclusive = new InclusiveImpl();
+		return inclusive;
 	}
 
 	/**
@@ -95,9 +92,9 @@ public class XpdlFactoryImpl extends EFactoryImpl implements XpdlFactory {
 	 * @generated
 	 */
 	@Override
-	public Lane createLane() {
-		LaneImpl lane = new LaneImpl();
-		return lane;
+	public Exclusive createExclusive() {
+		ExclusiveImpl exclusive = new ExclusiveImpl();
+		return exclusive;
 	}
 
 	/**
@@ -106,8 +103,8 @@ public class XpdlFactoryImpl extends EFactoryImpl implements XpdlFactory {
 	 * @generated
 	 */
 	@Override
-	public XpdlPackage getXpdlPackage() {
-		return (XpdlPackage)getEPackage();
+	public GatewaysPackage getGatewaysPackage() {
+		return (GatewaysPackage)getEPackage();
 	}
 
 	/**
@@ -117,8 +114,8 @@ public class XpdlFactoryImpl extends EFactoryImpl implements XpdlFactory {
 	 * @generated
 	 */
 	@Deprecated
-	public static XpdlPackage getPackage() {
-		return XpdlPackage.eINSTANCE;
+	public static GatewaysPackage getPackage() {
+		return GatewaysPackage.eINSTANCE;
 	}
 
-} //XpdlFactoryImpl
+} //GatewaysFactoryImpl

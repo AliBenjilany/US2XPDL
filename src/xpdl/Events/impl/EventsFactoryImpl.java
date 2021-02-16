@@ -1,6 +1,6 @@
 /**
  */
-package xpdl.impl;
+package xpdl.Events.impl;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -10,10 +10,7 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import xpdl.Lane;
-import xpdl.Pool;
-import xpdl.XpdlFactory;
-import xpdl.XpdlPackage;
+import xpdl.Events.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,24 +18,24 @@ import xpdl.XpdlPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class XpdlFactoryImpl extends EFactoryImpl implements XpdlFactory {
+public class EventsFactoryImpl extends EFactoryImpl implements EventsFactory {
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static XpdlFactory init() {
+	public static EventsFactory init() {
 		try {
-			XpdlFactory theXpdlFactory = (XpdlFactory)EPackage.Registry.INSTANCE.getEFactory(XpdlPackage.eNS_URI);
-			if (theXpdlFactory != null) {
-				return theXpdlFactory;
+			EventsFactory theEventsFactory = (EventsFactory)EPackage.Registry.INSTANCE.getEFactory(EventsPackage.eNS_URI);
+			if (theEventsFactory != null) {
+				return theEventsFactory;
 			}
 		}
 		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
-		return new XpdlFactoryImpl();
+		return new EventsFactoryImpl();
 	}
 
 	/**
@@ -47,7 +44,7 @@ public class XpdlFactoryImpl extends EFactoryImpl implements XpdlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public XpdlFactoryImpl() {
+	public EventsFactoryImpl() {
 		super();
 	}
 
@@ -59,9 +56,9 @@ public class XpdlFactoryImpl extends EFactoryImpl implements XpdlFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case XpdlPackage.PROCESS: return createProcess();
-			case XpdlPackage.POOL: return createPool();
-			case XpdlPackage.LANE: return createLane();
+			case EventsPackage.EVENT_START: return createEventStart();
+			case EventsPackage.EVENT_INTERMEDIATE: return createEventIntermediate();
+			case EventsPackage.EVENT_END: return createEventEnd();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -73,9 +70,9 @@ public class XpdlFactoryImpl extends EFactoryImpl implements XpdlFactory {
 	 * @generated
 	 */
 	@Override
-	public xpdl.Process createProcess() {
-		ProcessImpl process = new ProcessImpl();
-		return process;
+	public EventStart createEventStart() {
+		EventStartImpl eventStart = new EventStartImpl();
+		return eventStart;
 	}
 
 	/**
@@ -84,9 +81,9 @@ public class XpdlFactoryImpl extends EFactoryImpl implements XpdlFactory {
 	 * @generated
 	 */
 	@Override
-	public Pool createPool() {
-		PoolImpl pool = new PoolImpl();
-		return pool;
+	public EventIntermediate createEventIntermediate() {
+		EventIntermediateImpl eventIntermediate = new EventIntermediateImpl();
+		return eventIntermediate;
 	}
 
 	/**
@@ -95,9 +92,9 @@ public class XpdlFactoryImpl extends EFactoryImpl implements XpdlFactory {
 	 * @generated
 	 */
 	@Override
-	public Lane createLane() {
-		LaneImpl lane = new LaneImpl();
-		return lane;
+	public EventEnd createEventEnd() {
+		EventEndImpl eventEnd = new EventEndImpl();
+		return eventEnd;
 	}
 
 	/**
@@ -106,8 +103,8 @@ public class XpdlFactoryImpl extends EFactoryImpl implements XpdlFactory {
 	 * @generated
 	 */
 	@Override
-	public XpdlPackage getXpdlPackage() {
-		return (XpdlPackage)getEPackage();
+	public EventsPackage getEventsPackage() {
+		return (EventsPackage)getEPackage();
 	}
 
 	/**
@@ -117,8 +114,8 @@ public class XpdlFactoryImpl extends EFactoryImpl implements XpdlFactory {
 	 * @generated
 	 */
 	@Deprecated
-	public static XpdlPackage getPackage() {
-		return XpdlPackage.eINSTANCE;
+	public static EventsPackage getPackage() {
+		return EventsPackage.eINSTANCE;
 	}
 
-} //XpdlFactoryImpl
+} //EventsFactoryImpl

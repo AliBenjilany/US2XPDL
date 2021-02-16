@@ -1,6 +1,6 @@
 /**
  */
-package xpdl.util;
+package xpdl.Gateways.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -8,9 +8,8 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 
 import xpdl.FlowObject;
-import xpdl.Lane;
-import xpdl.Pool;
-import xpdl.XpdlPackage;
+
+import xpdl.Gateways.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,17 +21,17 @@ import xpdl.XpdlPackage;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see xpdl.XpdlPackage
+ * @see xpdl.Gateways.GatewaysPackage
  * @generated
  */
-public class XpdlSwitch<T> extends Switch<T> {
+public class GatewaysSwitch<T> extends Switch<T> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static XpdlPackage modelPackage;
+	protected static GatewaysPackage modelPackage;
 
 	/**
 	 * Creates an instance of the switch.
@@ -40,9 +39,9 @@ public class XpdlSwitch<T> extends Switch<T> {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public XpdlSwitch() {
+	public GatewaysSwitch() {
 		if (modelPackage == null) {
-			modelPackage = XpdlPackage.eINSTANCE;
+			modelPackage = GatewaysPackage.eINSTANCE;
 		}
 	}
 
@@ -69,27 +68,34 @@ public class XpdlSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case XpdlPackage.PROCESS: {
-				xpdl.Process process = (xpdl.Process)theEObject;
-				T result = caseProcess(process);
+			case GatewaysPackage.GATEWAY: {
+				Gateway gateway = (Gateway)theEObject;
+				T result = caseGateway(gateway);
+				if (result == null) result = caseFlowObject(gateway);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case XpdlPackage.POOL: {
-				Pool pool = (Pool)theEObject;
-				T result = casePool(pool);
+			case GatewaysPackage.PARALLEL: {
+				Parallel parallel = (Parallel)theEObject;
+				T result = caseParallel(parallel);
+				if (result == null) result = caseGateway(parallel);
+				if (result == null) result = caseFlowObject(parallel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case XpdlPackage.LANE: {
-				Lane lane = (Lane)theEObject;
-				T result = caseLane(lane);
+			case GatewaysPackage.INCLUSIVE: {
+				Inclusive inclusive = (Inclusive)theEObject;
+				T result = caseInclusive(inclusive);
+				if (result == null) result = caseGateway(inclusive);
+				if (result == null) result = caseFlowObject(inclusive);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case XpdlPackage.FLOW_OBJECT: {
-				FlowObject flowObject = (FlowObject)theEObject;
-				T result = caseFlowObject(flowObject);
+			case GatewaysPackage.EXCLUSIVE: {
+				Exclusive exclusive = (Exclusive)theEObject;
+				T result = caseExclusive(exclusive);
+				if (result == null) result = caseGateway(exclusive);
+				if (result == null) result = caseFlowObject(exclusive);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -98,47 +104,62 @@ public class XpdlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Process</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Gateway</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Process</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Gateway</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseProcess(xpdl.Process object) {
+	public T caseGateway(Gateway object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Pool</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Parallel</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Pool</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Parallel</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePool(Pool object) {
+	public T caseParallel(Parallel object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Lane</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Inclusive</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Lane</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Inclusive</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseLane(Lane object) {
+	public T caseInclusive(Inclusive object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Exclusive</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Exclusive</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExclusive(Exclusive object) {
 		return null;
 	}
 
@@ -173,4 +194,4 @@ public class XpdlSwitch<T> extends Switch<T> {
 		return null;
 	}
 
-} //XpdlSwitch
+} //GatewaysSwitch

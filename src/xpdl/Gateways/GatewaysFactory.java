@@ -1,6 +1,6 @@
 /**
  */
-package xpdl;
+package xpdl.Gateways;
 
 import org.eclipse.emf.ecore.EFactory;
 
@@ -9,44 +9,44 @@ import org.eclipse.emf.ecore.EFactory;
  * The <b>Factory</b> for the model.
  * It provides a create method for each non-abstract class of the model.
  * <!-- end-user-doc -->
- * @see xpdl.XpdlPackage
+ * @see xpdl.Gateways.GatewaysPackage
  * @generated
  */
-public interface XpdlFactory extends EFactory {
+public interface GatewaysFactory extends EFactory {
 	/**
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	XpdlFactory eINSTANCE = xpdl.impl.XpdlFactoryImpl.init();
+	GatewaysFactory eINSTANCE = xpdl.Gateways.impl.GatewaysFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Process</em>'.
+	 * Returns a new object of class '<em>Parallel</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Process</em>'.
+	 * @return a new object of class '<em>Parallel</em>'.
 	 * @generated
 	 */
-	Process createProcess();
+	Parallel createParallel();
 
 	/**
-	 * Returns a new object of class '<em>Pool</em>'.
+	 * Returns a new object of class '<em>Inclusive</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Pool</em>'.
+	 * @return a new object of class '<em>Inclusive</em>'.
 	 * @generated
 	 */
-	Pool createPool();
+	Inclusive createInclusive();
 
 	/**
-	 * Returns a new object of class '<em>Lane</em>'.
+	 * Returns a new object of class '<em>Exclusive</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Lane</em>'.
+	 * @return a new object of class '<em>Exclusive</em>'.
 	 * @generated
 	 */
-	Lane createLane();
+	Exclusive createExclusive();
 
 	/**
 	 * Returns the package supported by this factory.
@@ -55,6 +55,6 @@ public interface XpdlFactory extends EFactory {
 	 * @return the package supported by this factory.
 	 * @generated
 	 */
-	XpdlPackage getXpdlPackage();
+	GatewaysPackage getGatewaysPackage();
 
-} //XpdlFactory
+} //GatewaysFactory

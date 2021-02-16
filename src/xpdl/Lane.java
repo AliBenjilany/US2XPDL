@@ -8,36 +8,36 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Pool</b></em>'.
+ * A representation of the model object '<em><b>Lane</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link xpdl.Pool#getName <em>Name</em>}</li>
- *   <li>{@link xpdl.Pool#getLanes <em>Lanes</em>}</li>
+ *   <li>{@link xpdl.Lane#getName <em>Name</em>}</li>
+ *   <li>{@link xpdl.Lane#getFlowobject <em>Flowobject</em>}</li>
  * </ul>
  *
- * @see xpdl.XpdlPackage#getPool()
+ * @see xpdl.XpdlPackage#getLane()
  * @model
  * @generated
  */
-public interface Pool extends EObject {
+public interface Lane extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see xpdl.XpdlPackage#getPool_Name()
+	 * @see xpdl.XpdlPackage#getLane_Name()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link xpdl.Pool#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link xpdl.Lane#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Name</em>' attribute.
@@ -47,15 +47,15 @@ public interface Pool extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Lanes</b></em>' containment reference list.
-	 * The list contents are of type {@link xpdl.Lane}.
+	 * Returns the value of the '<em><b>Flowobject</b></em>' containment reference list.
+	 * The list contents are of type {@link xpdl.FlowObject}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Lanes</em>' containment reference list.
-	 * @see xpdl.XpdlPackage#getPool_Lanes()
+	 * @return the value of the '<em>Flowobject</em>' containment reference list.
+	 * @see xpdl.XpdlPackage#getLane_Flowobject()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList<Lane> getLanes();
+	EList<FlowObject> getFlowobject();
 
-} // Pool
+} // Lane

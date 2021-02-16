@@ -1,6 +1,6 @@
 /**
  */
-package xpdl.impl;
+package xpdl.Activities.impl;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -10,10 +10,7 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import xpdl.Lane;
-import xpdl.Pool;
-import xpdl.XpdlFactory;
-import xpdl.XpdlPackage;
+import xpdl.Activities.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,24 +18,24 @@ import xpdl.XpdlPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class XpdlFactoryImpl extends EFactoryImpl implements XpdlFactory {
+public class ActivitiesFactoryImpl extends EFactoryImpl implements ActivitiesFactory {
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static XpdlFactory init() {
+	public static ActivitiesFactory init() {
 		try {
-			XpdlFactory theXpdlFactory = (XpdlFactory)EPackage.Registry.INSTANCE.getEFactory(XpdlPackage.eNS_URI);
-			if (theXpdlFactory != null) {
-				return theXpdlFactory;
+			ActivitiesFactory theActivitiesFactory = (ActivitiesFactory)EPackage.Registry.INSTANCE.getEFactory(ActivitiesPackage.eNS_URI);
+			if (theActivitiesFactory != null) {
+				return theActivitiesFactory;
 			}
 		}
 		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
-		return new XpdlFactoryImpl();
+		return new ActivitiesFactoryImpl();
 	}
 
 	/**
@@ -47,7 +44,7 @@ public class XpdlFactoryImpl extends EFactoryImpl implements XpdlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public XpdlFactoryImpl() {
+	public ActivitiesFactoryImpl() {
 		super();
 	}
 
@@ -59,9 +56,10 @@ public class XpdlFactoryImpl extends EFactoryImpl implements XpdlFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case XpdlPackage.PROCESS: return createProcess();
-			case XpdlPackage.POOL: return createPool();
-			case XpdlPackage.LANE: return createLane();
+			case ActivitiesPackage.TASK: return createTask();
+			case ActivitiesPackage.CALL: return createCall();
+			case ActivitiesPackage.TRANSACTION: return createTransaction();
+			case ActivitiesPackage.SUB_PROCESS: return createSubProcess();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -73,9 +71,9 @@ public class XpdlFactoryImpl extends EFactoryImpl implements XpdlFactory {
 	 * @generated
 	 */
 	@Override
-	public xpdl.Process createProcess() {
-		ProcessImpl process = new ProcessImpl();
-		return process;
+	public Task createTask() {
+		TaskImpl task = new TaskImpl();
+		return task;
 	}
 
 	/**
@@ -84,9 +82,9 @@ public class XpdlFactoryImpl extends EFactoryImpl implements XpdlFactory {
 	 * @generated
 	 */
 	@Override
-	public Pool createPool() {
-		PoolImpl pool = new PoolImpl();
-		return pool;
+	public Call createCall() {
+		CallImpl call = new CallImpl();
+		return call;
 	}
 
 	/**
@@ -95,9 +93,9 @@ public class XpdlFactoryImpl extends EFactoryImpl implements XpdlFactory {
 	 * @generated
 	 */
 	@Override
-	public Lane createLane() {
-		LaneImpl lane = new LaneImpl();
-		return lane;
+	public Transaction createTransaction() {
+		TransactionImpl transaction = new TransactionImpl();
+		return transaction;
 	}
 
 	/**
@@ -106,8 +104,19 @@ public class XpdlFactoryImpl extends EFactoryImpl implements XpdlFactory {
 	 * @generated
 	 */
 	@Override
-	public XpdlPackage getXpdlPackage() {
-		return (XpdlPackage)getEPackage();
+	public SubProcess createSubProcess() {
+		SubProcessImpl subProcess = new SubProcessImpl();
+		return subProcess;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ActivitiesPackage getActivitiesPackage() {
+		return (ActivitiesPackage)getEPackage();
 	}
 
 	/**
@@ -117,8 +126,8 @@ public class XpdlFactoryImpl extends EFactoryImpl implements XpdlFactory {
 	 * @generated
 	 */
 	@Deprecated
-	public static XpdlPackage getPackage() {
-		return XpdlPackage.eINSTANCE;
+	public static ActivitiesPackage getPackage() {
+		return ActivitiesPackage.eINSTANCE;
 	}
 
-} //XpdlFactoryImpl
+} //ActivitiesFactoryImpl

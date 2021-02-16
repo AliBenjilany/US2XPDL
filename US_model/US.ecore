@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="UserStories" nsURI="http://userstories.com" nsPrefix="UserStories">
-  <eClassifiers xsi:type="ecore:EClass" name="ProductBacklog">
+  <eClassifiers xsi:type="ecore:EClass" name="Backlog">
     <eStructuralFeatures xsi:type="ecore:EReference" name="userstories" lowerBound="1"
         upperBound="-1" eType="#//UserStory" containment="true"/>
   </eClassifiers>
@@ -16,8 +16,9 @@
         upperBound="-1" eType="#//TeamMember" eOpposite="#//TeamMember/tasks"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="exception" eType="#//Exception"
         eOpposite="#//Exception/tasks"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="next" eType="#//Task" eOpposite="#//Task/last"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="last" eType="#//Task" eOpposite="#//Task/next"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="next" eType="#//Task" eOpposite="#//Task/previous"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="previous" eType="#//Task"
+        eOpposite="#//Task/next"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Person">
     <eStructuralFeatures xsi:type="ecore:EReference" name="userstories" upperBound="-1"

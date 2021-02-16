@@ -2,33 +2,25 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="xpdl" nsURI="http://xpdl.com" nsPrefix="xpdl">
   <eClassifiers xsi:type="ecore:EClass" name="Process">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Pools" ordered="false"
-        lowerBound="1" upperBound="-1" eType="#//Pool"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Objective" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="No objective set for this process"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pool" lowerBound="1" upperBound="-1"
+        eType="#//Pool" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Pool">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" ordered="false" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Lanes" ordered="false"
-        lowerBound="1" upperBound="-1" eType="#//Lane"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lanes" lowerBound="1" upperBound="-1"
+        eType="#//Lane" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Lane">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" ordered="false" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="FlowObjects" lowerBound="1"
-        upperBound="-1" eType="#//FlowObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="flowobject" lowerBound="1"
+        upperBound="-1" eType="#//FlowObject" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FlowObject" abstract="true" interface="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="inConnections" ordered="false"
-        upperBound="-1" eType="#//SequenceFlow" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="outConnections" ordered="false"
-        upperBound="-1" eType="#//SequenceFlow" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SequenceFlow">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Source" lowerBound="1"
-        eType="#//FlowObject"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Target" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" upperBound="-1"
         eType="#//FlowObject"/>
   </eClassifiers>
   <eSubpackages name="Activities" nsURI="com.us2xpdl.Activities" nsPrefix="Activities">
@@ -57,8 +49,12 @@
     <eClassifiers xsi:type="ecore:EClass" name="Gateway" abstract="true" eSuperTypes="#//FlowObject">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Split" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          defaultValueLiteral="True"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Exclusive" eSuperTypes="#//Gateways/Gateway"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Parallel" eSuperTypes="#//Gateways/Gateway"/>
     <eClassifiers xsi:type="ecore:EClass" name="Inclusive" eSuperTypes="#//Gateways/Gateway"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Exclusive" eSuperTypes="#//Gateways/Gateway"/>
   </eSubpackages>
 </ecore:EPackage>

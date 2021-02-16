@@ -1,16 +1,15 @@
 /**
  */
-package xpdl.util;
+package xpdl.Events.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
+import xpdl.Events.*;
+
 import xpdl.FlowObject;
-import xpdl.Lane;
-import xpdl.Pool;
-import xpdl.XpdlPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,17 +21,17 @@ import xpdl.XpdlPackage;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see xpdl.XpdlPackage
+ * @see xpdl.Events.EventsPackage
  * @generated
  */
-public class XpdlSwitch<T> extends Switch<T> {
+public class EventsSwitch<T> extends Switch<T> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static XpdlPackage modelPackage;
+	protected static EventsPackage modelPackage;
 
 	/**
 	 * Creates an instance of the switch.
@@ -40,9 +39,9 @@ public class XpdlSwitch<T> extends Switch<T> {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public XpdlSwitch() {
+	public EventsSwitch() {
 		if (modelPackage == null) {
-			modelPackage = XpdlPackage.eINSTANCE;
+			modelPackage = EventsPackage.eINSTANCE;
 		}
 	}
 
@@ -69,27 +68,34 @@ public class XpdlSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case XpdlPackage.PROCESS: {
-				xpdl.Process process = (xpdl.Process)theEObject;
-				T result = caseProcess(process);
+			case EventsPackage.EVENT: {
+				Event event = (Event)theEObject;
+				T result = caseEvent(event);
+				if (result == null) result = caseFlowObject(event);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case XpdlPackage.POOL: {
-				Pool pool = (Pool)theEObject;
-				T result = casePool(pool);
+			case EventsPackage.EVENT_START: {
+				EventStart eventStart = (EventStart)theEObject;
+				T result = caseEventStart(eventStart);
+				if (result == null) result = caseEvent(eventStart);
+				if (result == null) result = caseFlowObject(eventStart);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case XpdlPackage.LANE: {
-				Lane lane = (Lane)theEObject;
-				T result = caseLane(lane);
+			case EventsPackage.EVENT_INTERMEDIATE: {
+				EventIntermediate eventIntermediate = (EventIntermediate)theEObject;
+				T result = caseEventIntermediate(eventIntermediate);
+				if (result == null) result = caseEvent(eventIntermediate);
+				if (result == null) result = caseFlowObject(eventIntermediate);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case XpdlPackage.FLOW_OBJECT: {
-				FlowObject flowObject = (FlowObject)theEObject;
-				T result = caseFlowObject(flowObject);
+			case EventsPackage.EVENT_END: {
+				EventEnd eventEnd = (EventEnd)theEObject;
+				T result = caseEventEnd(eventEnd);
+				if (result == null) result = caseEvent(eventEnd);
+				if (result == null) result = caseFlowObject(eventEnd);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -98,47 +104,62 @@ public class XpdlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Process</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Event</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Process</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Event</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseProcess(xpdl.Process object) {
+	public T caseEvent(Event object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Pool</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Event Start</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Pool</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Event Start</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePool(Pool object) {
+	public T caseEventStart(EventStart object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Lane</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Event Intermediate</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Lane</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Event Intermediate</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseLane(Lane object) {
+	public T caseEventIntermediate(EventIntermediate object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Event End</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Event End</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEventEnd(EventEnd object) {
 		return null;
 	}
 
@@ -173,4 +194,4 @@ public class XpdlSwitch<T> extends Switch<T> {
 		return null;
 	}
 
-} //XpdlSwitch
+} //EventsSwitch

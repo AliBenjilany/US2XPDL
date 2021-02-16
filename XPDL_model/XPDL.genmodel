@@ -6,8 +6,48 @@
   <foreignModel>XPDL.ecore</foreignModel>
   <genPackages prefix="Xpdl" disposableProviderFactory="true" ecorePackage="XPDL.ecore#/">
     <genClasses ecoreClass="XPDL.ecore#//Process">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XPDL.ecore#//Process/Objective"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XPDL.ecore#//Process/pool"/>
     </genClasses>
-    <genClasses ecoreClass="XPDL.ecore#//Pool"/>
+    <genClasses ecoreClass="XPDL.ecore#//Pool">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XPDL.ecore#//Pool/Name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XPDL.ecore#//Pool/lanes"/>
+    </genClasses>
+    <genClasses ecoreClass="XPDL.ecore#//Lane">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XPDL.ecore#//Lane/Name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference XPDL.ecore#//Lane/flowobject"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="XPDL.ecore#//FlowObject">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference XPDL.ecore#//FlowObject/target"/>
+    </genClasses>
+    <nestedGenPackages prefix="Activities" disposableProviderFactory="true" ecorePackage="XPDL.ecore#//Activities">
+      <genClasses image="false" ecoreClass="XPDL.ecore#//Activities/Activity">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XPDL.ecore#//Activities/Activity/Name"/>
+      </genClasses>
+      <genClasses ecoreClass="XPDL.ecore#//Activities/Task"/>
+      <genClasses ecoreClass="XPDL.ecore#//Activities/Call"/>
+      <genClasses ecoreClass="XPDL.ecore#//Activities/Transaction"/>
+      <genClasses ecoreClass="XPDL.ecore#//Activities/SubProcess">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference XPDL.ecore#//Activities/SubProcess/SubProcess"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Events" disposableProviderFactory="true" ecorePackage="XPDL.ecore#//Events">
+      <genClasses image="false" ecoreClass="XPDL.ecore#//Events/Event">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XPDL.ecore#//Events/Event/Name"/>
+      </genClasses>
+      <genClasses ecoreClass="XPDL.ecore#//Events/EventStart"/>
+      <genClasses ecoreClass="XPDL.ecore#//Events/EventIntermediate"/>
+      <genClasses ecoreClass="XPDL.ecore#//Events/EventEnd"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Gateways" disposableProviderFactory="true" ecorePackage="XPDL.ecore#//Gateways">
+      <genClasses image="false" ecoreClass="XPDL.ecore#//Gateways/Gateway">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XPDL.ecore#//Gateways/Gateway/Name"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute XPDL.ecore#//Gateways/Gateway/Split"/>
+      </genClasses>
+      <genClasses ecoreClass="XPDL.ecore#//Gateways/Parallel"/>
+      <genClasses ecoreClass="XPDL.ecore#//Gateways/Inclusive"/>
+      <genClasses ecoreClass="XPDL.ecore#//Gateways/Exclusive"/>
+    </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>

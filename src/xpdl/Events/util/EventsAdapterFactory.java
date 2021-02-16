@@ -1,6 +1,6 @@
 /**
  */
-package xpdl.util;
+package xpdl.Events.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -9,27 +9,26 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
+import xpdl.Events.*;
+
 import xpdl.FlowObject;
-import xpdl.Lane;
-import xpdl.Pool;
-import xpdl.XpdlPackage;
 
 /**
  * <!-- begin-user-doc -->
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see xpdl.XpdlPackage
+ * @see xpdl.Events.EventsPackage
  * @generated
  */
-public class XpdlAdapterFactory extends AdapterFactoryImpl {
+public class EventsAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static XpdlPackage modelPackage;
+	protected static EventsPackage modelPackage;
 
 	/**
 	 * Creates an instance of the adapter factory.
@@ -37,9 +36,9 @@ public class XpdlAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public XpdlAdapterFactory() {
+	public EventsAdapterFactory() {
 		if (modelPackage == null) {
-			modelPackage = XpdlPackage.eINSTANCE;
+			modelPackage = EventsPackage.eINSTANCE;
 		}
 	}
 
@@ -68,19 +67,23 @@ public class XpdlAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected XpdlSwitch<Adapter> modelSwitch =
-		new XpdlSwitch<Adapter>() {
+	protected EventsSwitch<Adapter> modelSwitch =
+		new EventsSwitch<Adapter>() {
 			@Override
-			public Adapter caseProcess(xpdl.Process object) {
-				return createProcessAdapter();
+			public Adapter caseEvent(Event object) {
+				return createEventAdapter();
 			}
 			@Override
-			public Adapter casePool(Pool object) {
-				return createPoolAdapter();
+			public Adapter caseEventStart(EventStart object) {
+				return createEventStartAdapter();
 			}
 			@Override
-			public Adapter caseLane(Lane object) {
-				return createLaneAdapter();
+			public Adapter caseEventIntermediate(EventIntermediate object) {
+				return createEventIntermediateAdapter();
+			}
+			@Override
+			public Adapter caseEventEnd(EventEnd object) {
+				return createEventEndAdapter();
 			}
 			@Override
 			public Adapter caseFlowObject(FlowObject object) {
@@ -107,44 +110,58 @@ public class XpdlAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link xpdl.Process <em>Process</em>}'.
+	 * Creates a new adapter for an object of class '{@link xpdl.Events.Event <em>Event</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see xpdl.Process
+	 * @see xpdl.Events.Event
 	 * @generated
 	 */
-	public Adapter createProcessAdapter() {
+	public Adapter createEventAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link xpdl.Pool <em>Pool</em>}'.
+	 * Creates a new adapter for an object of class '{@link xpdl.Events.EventStart <em>Event Start</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see xpdl.Pool
+	 * @see xpdl.Events.EventStart
 	 * @generated
 	 */
-	public Adapter createPoolAdapter() {
+	public Adapter createEventStartAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link xpdl.Lane <em>Lane</em>}'.
+	 * Creates a new adapter for an object of class '{@link xpdl.Events.EventIntermediate <em>Event Intermediate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see xpdl.Lane
+	 * @see xpdl.Events.EventIntermediate
 	 * @generated
 	 */
-	public Adapter createLaneAdapter() {
+	public Adapter createEventIntermediateAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link xpdl.Events.EventEnd <em>Event End</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see xpdl.Events.EventEnd
+	 * @generated
+	 */
+	public Adapter createEventEndAdapter() {
 		return null;
 	}
 
@@ -174,4 +191,4 @@ public class XpdlAdapterFactory extends AdapterFactoryImpl {
 		return null;
 	}
 
-} //XpdlAdapterFactory
+} //EventsAdapterFactory

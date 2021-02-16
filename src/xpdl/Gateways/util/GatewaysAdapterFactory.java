@@ -1,6 +1,6 @@
 /**
  */
-package xpdl.util;
+package xpdl.Gateways.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -10,26 +10,25 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
 import xpdl.FlowObject;
-import xpdl.Lane;
-import xpdl.Pool;
-import xpdl.XpdlPackage;
+
+import xpdl.Gateways.*;
 
 /**
  * <!-- begin-user-doc -->
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see xpdl.XpdlPackage
+ * @see xpdl.Gateways.GatewaysPackage
  * @generated
  */
-public class XpdlAdapterFactory extends AdapterFactoryImpl {
+public class GatewaysAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static XpdlPackage modelPackage;
+	protected static GatewaysPackage modelPackage;
 
 	/**
 	 * Creates an instance of the adapter factory.
@@ -37,9 +36,9 @@ public class XpdlAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public XpdlAdapterFactory() {
+	public GatewaysAdapterFactory() {
 		if (modelPackage == null) {
-			modelPackage = XpdlPackage.eINSTANCE;
+			modelPackage = GatewaysPackage.eINSTANCE;
 		}
 	}
 
@@ -68,19 +67,23 @@ public class XpdlAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected XpdlSwitch<Adapter> modelSwitch =
-		new XpdlSwitch<Adapter>() {
+	protected GatewaysSwitch<Adapter> modelSwitch =
+		new GatewaysSwitch<Adapter>() {
 			@Override
-			public Adapter caseProcess(xpdl.Process object) {
-				return createProcessAdapter();
+			public Adapter caseGateway(Gateway object) {
+				return createGatewayAdapter();
 			}
 			@Override
-			public Adapter casePool(Pool object) {
-				return createPoolAdapter();
+			public Adapter caseParallel(Parallel object) {
+				return createParallelAdapter();
 			}
 			@Override
-			public Adapter caseLane(Lane object) {
-				return createLaneAdapter();
+			public Adapter caseInclusive(Inclusive object) {
+				return createInclusiveAdapter();
+			}
+			@Override
+			public Adapter caseExclusive(Exclusive object) {
+				return createExclusiveAdapter();
 			}
 			@Override
 			public Adapter caseFlowObject(FlowObject object) {
@@ -107,44 +110,58 @@ public class XpdlAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link xpdl.Process <em>Process</em>}'.
+	 * Creates a new adapter for an object of class '{@link xpdl.Gateways.Gateway <em>Gateway</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see xpdl.Process
+	 * @see xpdl.Gateways.Gateway
 	 * @generated
 	 */
-	public Adapter createProcessAdapter() {
+	public Adapter createGatewayAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link xpdl.Pool <em>Pool</em>}'.
+	 * Creates a new adapter for an object of class '{@link xpdl.Gateways.Parallel <em>Parallel</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see xpdl.Pool
+	 * @see xpdl.Gateways.Parallel
 	 * @generated
 	 */
-	public Adapter createPoolAdapter() {
+	public Adapter createParallelAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link xpdl.Lane <em>Lane</em>}'.
+	 * Creates a new adapter for an object of class '{@link xpdl.Gateways.Inclusive <em>Inclusive</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see xpdl.Lane
+	 * @see xpdl.Gateways.Inclusive
 	 * @generated
 	 */
-	public Adapter createLaneAdapter() {
+	public Adapter createInclusiveAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link xpdl.Gateways.Exclusive <em>Exclusive</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see xpdl.Gateways.Exclusive
+	 * @generated
+	 */
+	public Adapter createExclusiveAdapter() {
 		return null;
 	}
 
@@ -174,4 +191,4 @@ public class XpdlAdapterFactory extends AdapterFactoryImpl {
 		return null;
 	}
 
-} //XpdlAdapterFactory
+} //GatewaysAdapterFactory

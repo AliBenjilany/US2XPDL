@@ -1,16 +1,15 @@
 /**
  */
-package xpdl.util;
+package xpdl.Activities.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
+import xpdl.Activities.*;
+
 import xpdl.FlowObject;
-import xpdl.Lane;
-import xpdl.Pool;
-import xpdl.XpdlPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,17 +21,17 @@ import xpdl.XpdlPackage;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see xpdl.XpdlPackage
+ * @see xpdl.Activities.ActivitiesPackage
  * @generated
  */
-public class XpdlSwitch<T> extends Switch<T> {
+public class ActivitiesSwitch<T> extends Switch<T> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static XpdlPackage modelPackage;
+	protected static ActivitiesPackage modelPackage;
 
 	/**
 	 * Creates an instance of the switch.
@@ -40,9 +39,9 @@ public class XpdlSwitch<T> extends Switch<T> {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public XpdlSwitch() {
+	public ActivitiesSwitch() {
 		if (modelPackage == null) {
-			modelPackage = XpdlPackage.eINSTANCE;
+			modelPackage = ActivitiesPackage.eINSTANCE;
 		}
 	}
 
@@ -69,27 +68,42 @@ public class XpdlSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case XpdlPackage.PROCESS: {
-				xpdl.Process process = (xpdl.Process)theEObject;
-				T result = caseProcess(process);
+			case ActivitiesPackage.ACTIVITY: {
+				Activity activity = (Activity)theEObject;
+				T result = caseActivity(activity);
+				if (result == null) result = caseFlowObject(activity);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case XpdlPackage.POOL: {
-				Pool pool = (Pool)theEObject;
-				T result = casePool(pool);
+			case ActivitiesPackage.TASK: {
+				Task task = (Task)theEObject;
+				T result = caseTask(task);
+				if (result == null) result = caseActivity(task);
+				if (result == null) result = caseFlowObject(task);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case XpdlPackage.LANE: {
-				Lane lane = (Lane)theEObject;
-				T result = caseLane(lane);
+			case ActivitiesPackage.CALL: {
+				Call call = (Call)theEObject;
+				T result = caseCall(call);
+				if (result == null) result = caseActivity(call);
+				if (result == null) result = caseFlowObject(call);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case XpdlPackage.FLOW_OBJECT: {
-				FlowObject flowObject = (FlowObject)theEObject;
-				T result = caseFlowObject(flowObject);
+			case ActivitiesPackage.TRANSACTION: {
+				Transaction transaction = (Transaction)theEObject;
+				T result = caseTransaction(transaction);
+				if (result == null) result = caseActivity(transaction);
+				if (result == null) result = caseFlowObject(transaction);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ActivitiesPackage.SUB_PROCESS: {
+				SubProcess subProcess = (SubProcess)theEObject;
+				T result = caseSubProcess(subProcess);
+				if (result == null) result = caseActivity(subProcess);
+				if (result == null) result = caseFlowObject(subProcess);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -98,47 +112,77 @@ public class XpdlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Process</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Activity</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Process</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Activity</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseProcess(xpdl.Process object) {
+	public T caseActivity(Activity object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Pool</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Task</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Pool</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Task</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePool(Pool object) {
+	public T caseTask(Task object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Lane</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Call</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Lane</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Call</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseLane(Lane object) {
+	public T caseCall(Call object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Transaction</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Transaction</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTransaction(Transaction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sub Process</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sub Process</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSubProcess(SubProcess object) {
 		return null;
 	}
 
@@ -173,4 +217,4 @@ public class XpdlSwitch<T> extends Switch<T> {
 		return null;
 	}
 
-} //XpdlSwitch
+} //ActivitiesSwitch

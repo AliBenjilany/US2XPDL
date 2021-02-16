@@ -22,4 +22,28 @@
             genModel="XPDL_model/XPDL.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated XPDL -->
+      <package
+            uri="com.us2xpdl.Activities"
+            class="xpdl.Activities.ActivitiesPackage"
+            genModel="XPDL_model/XPDL.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated XPDL -->
+      <package
+            uri="com.us2xpdl.Events"
+            class="xpdl.Events.EventsPackage"
+            genModel="XPDL_model/XPDL.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated XPDL -->
+      <package
+            uri="com.us2xpdl.Gateways"
+            class="xpdl.Gateways.GatewaysPackage"
+            genModel="XPDL_model/XPDL.genmodel"/>
+   </extension>
+
 </plugin>

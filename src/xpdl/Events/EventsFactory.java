@@ -1,6 +1,6 @@
 /**
  */
-package xpdl;
+package xpdl.Events;
 
 import org.eclipse.emf.ecore.EFactory;
 
@@ -9,44 +9,44 @@ import org.eclipse.emf.ecore.EFactory;
  * The <b>Factory</b> for the model.
  * It provides a create method for each non-abstract class of the model.
  * <!-- end-user-doc -->
- * @see xpdl.XpdlPackage
+ * @see xpdl.Events.EventsPackage
  * @generated
  */
-public interface XpdlFactory extends EFactory {
+public interface EventsFactory extends EFactory {
 	/**
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	XpdlFactory eINSTANCE = xpdl.impl.XpdlFactoryImpl.init();
+	EventsFactory eINSTANCE = xpdl.Events.impl.EventsFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Process</em>'.
+	 * Returns a new object of class '<em>Event Start</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Process</em>'.
+	 * @return a new object of class '<em>Event Start</em>'.
 	 * @generated
 	 */
-	Process createProcess();
+	EventStart createEventStart();
 
 	/**
-	 * Returns a new object of class '<em>Pool</em>'.
+	 * Returns a new object of class '<em>Event Intermediate</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Pool</em>'.
+	 * @return a new object of class '<em>Event Intermediate</em>'.
 	 * @generated
 	 */
-	Pool createPool();
+	EventIntermediate createEventIntermediate();
 
 	/**
-	 * Returns a new object of class '<em>Lane</em>'.
+	 * Returns a new object of class '<em>Event End</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Lane</em>'.
+	 * @return a new object of class '<em>Event End</em>'.
 	 * @generated
 	 */
-	Lane createLane();
+	EventEnd createEventEnd();
 
 	/**
 	 * Returns the package supported by this factory.
@@ -55,6 +55,6 @@ public interface XpdlFactory extends EFactory {
 	 * @return the package supported by this factory.
 	 * @generated
 	 */
-	XpdlPackage getXpdlPackage();
+	EventsPackage getEventsPackage();
 
-} //XpdlFactory
+} //EventsFactory

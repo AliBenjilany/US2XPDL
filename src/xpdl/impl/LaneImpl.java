@@ -18,60 +18,61 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import xpdl.Pool;
+import xpdl.FlowObject;
+import xpdl.Lane;
 import xpdl.XpdlPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Process</b></em>'.
+ * An implementation of the model object '<em><b>Lane</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link xpdl.impl.ProcessImpl#getObjective <em>Objective</em>}</li>
- *   <li>{@link xpdl.impl.ProcessImpl#getPool <em>Pool</em>}</li>
+ *   <li>{@link xpdl.impl.LaneImpl#getName <em>Name</em>}</li>
+ *   <li>{@link xpdl.impl.LaneImpl#getFlowobject <em>Flowobject</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ProcessImpl extends MinimalEObjectImpl.Container implements xpdl.Process {
+public class LaneImpl extends MinimalEObjectImpl.Container implements Lane {
 	/**
-	 * The default value of the '{@link #getObjective() <em>Objective</em>}' attribute.
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getObjective()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String OBJECTIVE_EDEFAULT = "No objective set for this process";
+	protected static final String NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getObjective() <em>Objective</em>}' attribute.
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getObjective()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected String objective = OBJECTIVE_EDEFAULT;
+	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getPool() <em>Pool</em>}' containment reference list.
+	 * The cached value of the '{@link #getFlowobject() <em>Flowobject</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPool()
+	 * @see #getFlowobject()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Pool> pool;
+	protected EList<FlowObject> flowobject;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ProcessImpl() {
+	protected LaneImpl() {
 		super();
 	}
 
@@ -82,7 +83,7 @@ public class ProcessImpl extends MinimalEObjectImpl.Container implements xpdl.Pr
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return XpdlPackage.Literals.PROCESS;
+		return XpdlPackage.Literals.LANE;
 	}
 
 	/**
@@ -91,8 +92,8 @@ public class ProcessImpl extends MinimalEObjectImpl.Container implements xpdl.Pr
 	 * @generated
 	 */
 	@Override
-	public String getObjective() {
-		return objective;
+	public String getName() {
+		return name;
 	}
 
 	/**
@@ -101,11 +102,11 @@ public class ProcessImpl extends MinimalEObjectImpl.Container implements xpdl.Pr
 	 * @generated
 	 */
 	@Override
-	public void setObjective(String newObjective) {
-		String oldObjective = objective;
-		objective = newObjective;
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, XpdlPackage.PROCESS__OBJECTIVE, oldObjective, objective));
+			eNotify(new ENotificationImpl(this, Notification.SET, XpdlPackage.LANE__NAME, oldName, name));
 	}
 
 	/**
@@ -114,11 +115,11 @@ public class ProcessImpl extends MinimalEObjectImpl.Container implements xpdl.Pr
 	 * @generated
 	 */
 	@Override
-	public EList<Pool> getPool() {
-		if (pool == null) {
-			pool = new EObjectContainmentEList<Pool>(Pool.class, this, XpdlPackage.PROCESS__POOL);
+	public EList<FlowObject> getFlowobject() {
+		if (flowobject == null) {
+			flowobject = new EObjectContainmentEList<FlowObject>(FlowObject.class, this, XpdlPackage.LANE__FLOWOBJECT);
 		}
-		return pool;
+		return flowobject;
 	}
 
 	/**
@@ -129,8 +130,8 @@ public class ProcessImpl extends MinimalEObjectImpl.Container implements xpdl.Pr
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case XpdlPackage.PROCESS__POOL:
-				return ((InternalEList<?>)getPool()).basicRemove(otherEnd, msgs);
+			case XpdlPackage.LANE__FLOWOBJECT:
+				return ((InternalEList<?>)getFlowobject()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -143,10 +144,10 @@ public class ProcessImpl extends MinimalEObjectImpl.Container implements xpdl.Pr
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case XpdlPackage.PROCESS__OBJECTIVE:
-				return getObjective();
-			case XpdlPackage.PROCESS__POOL:
-				return getPool();
+			case XpdlPackage.LANE__NAME:
+				return getName();
+			case XpdlPackage.LANE__FLOWOBJECT:
+				return getFlowobject();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -160,12 +161,12 @@ public class ProcessImpl extends MinimalEObjectImpl.Container implements xpdl.Pr
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case XpdlPackage.PROCESS__OBJECTIVE:
-				setObjective((String)newValue);
+			case XpdlPackage.LANE__NAME:
+				setName((String)newValue);
 				return;
-			case XpdlPackage.PROCESS__POOL:
-				getPool().clear();
-				getPool().addAll((Collection<? extends Pool>)newValue);
+			case XpdlPackage.LANE__FLOWOBJECT:
+				getFlowobject().clear();
+				getFlowobject().addAll((Collection<? extends FlowObject>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -179,11 +180,11 @@ public class ProcessImpl extends MinimalEObjectImpl.Container implements xpdl.Pr
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case XpdlPackage.PROCESS__OBJECTIVE:
-				setObjective(OBJECTIVE_EDEFAULT);
+			case XpdlPackage.LANE__NAME:
+				setName(NAME_EDEFAULT);
 				return;
-			case XpdlPackage.PROCESS__POOL:
-				getPool().clear();
+			case XpdlPackage.LANE__FLOWOBJECT:
+				getFlowobject().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -197,10 +198,10 @@ public class ProcessImpl extends MinimalEObjectImpl.Container implements xpdl.Pr
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case XpdlPackage.PROCESS__OBJECTIVE:
-				return OBJECTIVE_EDEFAULT == null ? objective != null : !OBJECTIVE_EDEFAULT.equals(objective);
-			case XpdlPackage.PROCESS__POOL:
-				return pool != null && !pool.isEmpty();
+			case XpdlPackage.LANE__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case XpdlPackage.LANE__FLOWOBJECT:
+				return flowobject != null && !flowobject.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -215,10 +216,10 @@ public class ProcessImpl extends MinimalEObjectImpl.Container implements xpdl.Pr
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (Objective: ");
-		result.append(objective);
+		result.append(" (Name: ");
+		result.append(name);
 		result.append(')');
 		return result.toString();
 	}
 
-} //ProcessImpl
+} //LaneImpl
