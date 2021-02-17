@@ -4,10 +4,10 @@ package UserStories.util;
 
 import UserStories.Condition;
 import UserStories.Event;
-import UserStories.Person;
+import UserStories.Goal;
 import UserStories.ProductBacklog;
+import UserStories.Role;
 import UserStories.Task;
-import UserStories.TeamMember;
 import UserStories.UserStoriesPackage;
 import UserStories.UserStory;
 
@@ -91,23 +91,21 @@ public class UserStoriesSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case UserStoriesPackage.PERSON: {
-				Person person = (Person)theEObject;
-				T result = casePerson(person);
+			case UserStoriesPackage.ROLE: {
+				Role role = (Role)theEObject;
+				T result = caseRole(role);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case UserStoriesPackage.TEAM_MEMBER: {
-				TeamMember teamMember = (TeamMember)theEObject;
-				T result = caseTeamMember(teamMember);
-				if (result == null) result = casePerson(teamMember);
+			case UserStoriesPackage.GOAL: {
+				Goal goal = (Goal)theEObject;
+				T result = caseGoal(goal);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case UserStoriesPackage.CONDITION: {
-				Condition condition = (Condition)theEObject;
-				T result = caseCondition(condition);
-				if (result == null) result = caseException(condition);
+			case UserStoriesPackage.EXCEPTION: {
+				UserStories.Exception exception = (UserStories.Exception)theEObject;
+				T result = caseException(exception);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -118,9 +116,10 @@ public class UserStoriesSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case UserStoriesPackage.EXCEPTION: {
-				UserStories.Exception exception = (UserStories.Exception)theEObject;
-				T result = caseException(exception);
+			case UserStoriesPackage.CONDITION: {
+				Condition condition = (Condition)theEObject;
+				T result = caseCondition(condition);
+				if (result == null) result = caseException(condition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -174,47 +173,47 @@ public class UserStoriesSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Person</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Role</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Person</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Role</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePerson(Person object) {
+	public T caseRole(Role object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Team Member</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Goal</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Team Member</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Goal</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseTeamMember(TeamMember object) {
+	public T caseGoal(Goal object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Condition</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Exception</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Condition</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Exception</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseCondition(Condition object) {
+	public T caseException(UserStories.Exception object) {
 		return null;
 	}
 
@@ -234,17 +233,17 @@ public class UserStoriesSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Exception</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Condition</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Exception</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Condition</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseException(UserStories.Exception object) {
+	public T caseCondition(Condition object) {
 		return null;
 	}
 

@@ -2,7 +2,8 @@
  */
 package UserStories.impl;
 
-import UserStories.Person;
+import UserStories.Goal;
+import UserStories.Role;
 import UserStories.Task;
 import UserStories.UserStoriesPackage;
 import UserStories.UserStory;
@@ -32,7 +33,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link UserStories.impl.UserStoryImpl#getTasks <em>Tasks</em>}</li>
- *   <li>{@link UserStories.impl.UserStoryImpl#getPerson <em>Person</em>}</li>
+ *   <li>{@link UserStories.impl.UserStoryImpl#getId <em>Id</em>}</li>
+ *   <li>{@link UserStories.impl.UserStoryImpl#getRole <em>Role</em>}</li>
+ *   <li>{@link UserStories.impl.UserStoryImpl#getGoal <em>Goal</em>}</li>
  * </ul>
  *
  * @generated
@@ -49,14 +52,44 @@ public class UserStoryImpl extends MinimalEObjectImpl.Container implements UserS
 	protected EList<Task> tasks;
 
 	/**
-	 * The cached value of the '{@link #getPerson() <em>Person</em>}' reference.
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPerson()
+	 * @see #getId()
 	 * @generated
 	 * @ordered
 	 */
-	protected Person person;
+	protected static final int ID_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected int id = ID_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getRole() <em>Role</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRole()
+	 * @generated
+	 * @ordered
+	 */
+	protected Role role;
+
+	/**
+	 * The cached value of the '{@link #getGoal() <em>Goal</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGoal()
+	 * @generated
+	 * @ordered
+	 */
+	protected Goal goal;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -96,16 +129,39 @@ public class UserStoryImpl extends MinimalEObjectImpl.Container implements UserS
 	 * @generated
 	 */
 	@Override
-	public Person getPerson() {
-		if (person != null && person.eIsProxy()) {
-			InternalEObject oldPerson = (InternalEObject)person;
-			person = (Person)eResolveProxy(oldPerson);
-			if (person != oldPerson) {
+	public int getId() {
+		return id;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setId(int newId) {
+		int oldId = id;
+		id = newId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UserStoriesPackage.USER_STORY__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Role getRole() {
+		if (role != null && role.eIsProxy()) {
+			InternalEObject oldRole = (InternalEObject)role;
+			role = (Role)eResolveProxy(oldRole);
+			if (role != oldRole) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UserStoriesPackage.USER_STORY__PERSON, oldPerson, person));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UserStoriesPackage.USER_STORY__ROLE, oldRole, role));
 			}
 		}
-		return person;
+		return role;
 	}
 
 	/**
@@ -113,23 +169,8 @@ public class UserStoryImpl extends MinimalEObjectImpl.Container implements UserS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Person basicGetPerson() {
-		return person;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPerson(Person newPerson, NotificationChain msgs) {
-		Person oldPerson = person;
-		person = newPerson;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UserStoriesPackage.USER_STORY__PERSON, oldPerson, newPerson);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+	public Role basicGetRole() {
+		return role;
 	}
 
 	/**
@@ -138,18 +179,11 @@ public class UserStoryImpl extends MinimalEObjectImpl.Container implements UserS
 	 * @generated
 	 */
 	@Override
-	public void setPerson(Person newPerson) {
-		if (newPerson != person) {
-			NotificationChain msgs = null;
-			if (person != null)
-				msgs = ((InternalEObject)person).eInverseRemove(this, UserStoriesPackage.PERSON__USERSTORIES, Person.class, msgs);
-			if (newPerson != null)
-				msgs = ((InternalEObject)newPerson).eInverseAdd(this, UserStoriesPackage.PERSON__USERSTORIES, Person.class, msgs);
-			msgs = basicSetPerson(newPerson, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UserStoriesPackage.USER_STORY__PERSON, newPerson, newPerson));
+	public void setRole(Role newRole) {
+		Role oldRole = role;
+		role = newRole;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UserStoriesPackage.USER_STORY__ROLE, oldRole, role));
 	}
 
 	/**
@@ -158,14 +192,38 @@ public class UserStoryImpl extends MinimalEObjectImpl.Container implements UserS
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case UserStoriesPackage.USER_STORY__PERSON:
-				if (person != null)
-					msgs = ((InternalEObject)person).eInverseRemove(this, UserStoriesPackage.PERSON__USERSTORIES, Person.class, msgs);
-				return basicSetPerson((Person)otherEnd, msgs);
+	public Goal getGoal() {
+		if (goal != null && goal.eIsProxy()) {
+			InternalEObject oldGoal = (InternalEObject)goal;
+			goal = (Goal)eResolveProxy(oldGoal);
+			if (goal != oldGoal) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UserStoriesPackage.USER_STORY__GOAL, oldGoal, goal));
+			}
 		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
+		return goal;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Goal basicGetGoal() {
+		return goal;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setGoal(Goal newGoal) {
+		Goal oldGoal = goal;
+		goal = newGoal;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UserStoriesPackage.USER_STORY__GOAL, oldGoal, goal));
 	}
 
 	/**
@@ -178,8 +236,6 @@ public class UserStoryImpl extends MinimalEObjectImpl.Container implements UserS
 		switch (featureID) {
 			case UserStoriesPackage.USER_STORY__TASKS:
 				return ((InternalEList<?>)getTasks()).basicRemove(otherEnd, msgs);
-			case UserStoriesPackage.USER_STORY__PERSON:
-				return basicSetPerson(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -194,9 +250,14 @@ public class UserStoryImpl extends MinimalEObjectImpl.Container implements UserS
 		switch (featureID) {
 			case UserStoriesPackage.USER_STORY__TASKS:
 				return getTasks();
-			case UserStoriesPackage.USER_STORY__PERSON:
-				if (resolve) return getPerson();
-				return basicGetPerson();
+			case UserStoriesPackage.USER_STORY__ID:
+				return getId();
+			case UserStoriesPackage.USER_STORY__ROLE:
+				if (resolve) return getRole();
+				return basicGetRole();
+			case UserStoriesPackage.USER_STORY__GOAL:
+				if (resolve) return getGoal();
+				return basicGetGoal();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -214,8 +275,14 @@ public class UserStoryImpl extends MinimalEObjectImpl.Container implements UserS
 				getTasks().clear();
 				getTasks().addAll((Collection<? extends Task>)newValue);
 				return;
-			case UserStoriesPackage.USER_STORY__PERSON:
-				setPerson((Person)newValue);
+			case UserStoriesPackage.USER_STORY__ID:
+				setId((Integer)newValue);
+				return;
+			case UserStoriesPackage.USER_STORY__ROLE:
+				setRole((Role)newValue);
+				return;
+			case UserStoriesPackage.USER_STORY__GOAL:
+				setGoal((Goal)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -232,8 +299,14 @@ public class UserStoryImpl extends MinimalEObjectImpl.Container implements UserS
 			case UserStoriesPackage.USER_STORY__TASKS:
 				getTasks().clear();
 				return;
-			case UserStoriesPackage.USER_STORY__PERSON:
-				setPerson((Person)null);
+			case UserStoriesPackage.USER_STORY__ID:
+				setId(ID_EDEFAULT);
+				return;
+			case UserStoriesPackage.USER_STORY__ROLE:
+				setRole((Role)null);
+				return;
+			case UserStoriesPackage.USER_STORY__GOAL:
+				setGoal((Goal)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -249,10 +322,30 @@ public class UserStoryImpl extends MinimalEObjectImpl.Container implements UserS
 		switch (featureID) {
 			case UserStoriesPackage.USER_STORY__TASKS:
 				return tasks != null && !tasks.isEmpty();
-			case UserStoriesPackage.USER_STORY__PERSON:
-				return person != null;
+			case UserStoriesPackage.USER_STORY__ID:
+				return id != ID_EDEFAULT;
+			case UserStoriesPackage.USER_STORY__ROLE:
+				return role != null;
+			case UserStoriesPackage.USER_STORY__GOAL:
+				return goal != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (id: ");
+		result.append(id);
+		result.append(')');
+		return result.toString();
 	}
 
 } //UserStoryImpl

@@ -4,10 +4,10 @@ package UserStories.util;
 
 import UserStories.Condition;
 import UserStories.Event;
-import UserStories.Person;
+import UserStories.Goal;
 import UserStories.ProductBacklog;
+import UserStories.Role;
 import UserStories.Task;
-import UserStories.TeamMember;
 import UserStories.UserStoriesPackage;
 import UserStories.UserStory;
 
@@ -87,24 +87,24 @@ public class UserStoriesAdapterFactory extends AdapterFactoryImpl {
 				return createTaskAdapter();
 			}
 			@Override
-			public Adapter casePerson(Person object) {
-				return createPersonAdapter();
+			public Adapter caseRole(Role object) {
+				return createRoleAdapter();
 			}
 			@Override
-			public Adapter caseTeamMember(TeamMember object) {
-				return createTeamMemberAdapter();
+			public Adapter caseGoal(Goal object) {
+				return createGoalAdapter();
 			}
 			@Override
-			public Adapter caseCondition(Condition object) {
-				return createConditionAdapter();
+			public Adapter caseException(UserStories.Exception object) {
+				return createExceptionAdapter();
 			}
 			@Override
 			public Adapter caseEvent(Event object) {
 				return createEventAdapter();
 			}
 			@Override
-			public Adapter caseException(UserStories.Exception object) {
-				return createExceptionAdapter();
+			public Adapter caseCondition(Condition object) {
+				return createConditionAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -169,44 +169,44 @@ public class UserStoriesAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link UserStories.Person <em>Person</em>}'.
+	 * Creates a new adapter for an object of class '{@link UserStories.Role <em>Role</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see UserStories.Person
+	 * @see UserStories.Role
 	 * @generated
 	 */
-	public Adapter createPersonAdapter() {
+	public Adapter createRoleAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link UserStories.TeamMember <em>Team Member</em>}'.
+	 * Creates a new adapter for an object of class '{@link UserStories.Goal <em>Goal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see UserStories.TeamMember
+	 * @see UserStories.Goal
 	 * @generated
 	 */
-	public Adapter createTeamMemberAdapter() {
+	public Adapter createGoalAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link UserStories.Condition <em>Condition</em>}'.
+	 * Creates a new adapter for an object of class '{@link UserStories.Exception <em>Exception</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see UserStories.Condition
+	 * @see UserStories.Exception
 	 * @generated
 	 */
-	public Adapter createConditionAdapter() {
+	public Adapter createExceptionAdapter() {
 		return null;
 	}
 
@@ -225,16 +225,16 @@ public class UserStoriesAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link UserStories.Exception <em>Exception</em>}'.
+	 * Creates a new adapter for an object of class '{@link UserStories.Condition <em>Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see UserStories.Exception
+	 * @see UserStories.Condition
 	 * @generated
 	 */
-	public Adapter createExceptionAdapter() {
+	public Adapter createConditionAdapter() {
 		return null;
 	}
 

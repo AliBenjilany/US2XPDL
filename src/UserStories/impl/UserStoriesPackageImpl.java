@@ -4,14 +4,15 @@ package UserStories.impl;
 
 import UserStories.Condition;
 import UserStories.Event;
-import UserStories.Person;
+import UserStories.Goal;
 import UserStories.ProductBacklog;
+import UserStories.Role;
 import UserStories.Task;
-import UserStories.TeamMember;
 import UserStories.UserStoriesFactory;
 import UserStories.UserStoriesPackage;
 import UserStories.UserStory;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -51,21 +52,21 @@ public class UserStoriesPackageImpl extends EPackageImpl implements UserStoriesP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass personEClass = null;
+	private EClass roleEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass teamMemberEClass = null;
+	private EClass goalEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass conditionEClass = null;
+	private EClass exceptionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -79,7 +80,7 @@ public class UserStoriesPackageImpl extends EPackageImpl implements UserStoriesP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass exceptionEClass = null;
+	private EClass conditionEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -168,6 +169,36 @@ public class UserStoriesPackageImpl extends EPackageImpl implements UserStoriesP
 	 * @generated
 	 */
 	@Override
+	public EAttribute getProductBacklog_Name() {
+		return (EAttribute)productBacklogEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getProductBacklog_Goals() {
+		return (EReference)productBacklogEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getProductBacklog_Roles() {
+		return (EReference)productBacklogEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getUserStory() {
 		return userStoryEClass;
 	}
@@ -188,8 +219,28 @@ public class UserStoriesPackageImpl extends EPackageImpl implements UserStoriesP
 	 * @generated
 	 */
 	@Override
-	public EReference getUserStory_Person() {
-		return (EReference)userStoryEClass.getEStructuralFeatures().get(1);
+	public EAttribute getUserStory_Id() {
+		return (EAttribute)userStoryEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getUserStory_Role() {
+		return (EReference)userStoryEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getUserStory_Goal() {
+		return (EReference)userStoryEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -208,8 +259,8 @@ public class UserStoriesPackageImpl extends EPackageImpl implements UserStoriesP
 	 * @generated
 	 */
 	@Override
-	public EReference getTask_Teammembers() {
-		return (EReference)taskEClass.getEStructuralFeatures().get(0);
+	public EAttribute getTask_Name() {
+		return (EAttribute)taskEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -218,7 +269,7 @@ public class UserStoriesPackageImpl extends EPackageImpl implements UserStoriesP
 	 * @generated
 	 */
 	@Override
-	public EReference getTask_Exception() {
+	public EReference getTask_Exceptions() {
 		return (EReference)taskEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -228,8 +279,8 @@ public class UserStoriesPackageImpl extends EPackageImpl implements UserStoriesP
 	 * @generated
 	 */
 	@Override
-	public EReference getTask_Next() {
-		return (EReference)taskEClass.getEStructuralFeatures().get(2);
+	public EClass getRole() {
+		return roleEClass;
 	}
 
 	/**
@@ -238,8 +289,8 @@ public class UserStoriesPackageImpl extends EPackageImpl implements UserStoriesP
 	 * @generated
 	 */
 	@Override
-	public EReference getTask_Last() {
-		return (EReference)taskEClass.getEStructuralFeatures().get(3);
+	public EAttribute getRole_Name() {
+		return (EAttribute)roleEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -248,8 +299,8 @@ public class UserStoriesPackageImpl extends EPackageImpl implements UserStoriesP
 	 * @generated
 	 */
 	@Override
-	public EClass getPerson() {
-		return personEClass;
+	public EClass getGoal() {
+		return goalEClass;
 	}
 
 	/**
@@ -258,48 +309,8 @@ public class UserStoriesPackageImpl extends EPackageImpl implements UserStoriesP
 	 * @generated
 	 */
 	@Override
-	public EReference getPerson_Userstories() {
-		return (EReference)personEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getTeamMember() {
-		return teamMemberEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getTeamMember_Tasks() {
-		return (EReference)teamMemberEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getCondition() {
-		return conditionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getEvent() {
-		return eventEClass;
+	public EAttribute getGoal_Name() {
+		return (EAttribute)goalEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -318,8 +329,28 @@ public class UserStoriesPackageImpl extends EPackageImpl implements UserStoriesP
 	 * @generated
 	 */
 	@Override
-	public EReference getException_Tasks() {
-		return (EReference)exceptionEClass.getEStructuralFeatures().get(0);
+	public EAttribute getException_Name() {
+		return (EAttribute)exceptionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getEvent() {
+		return eventEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getCondition() {
+		return conditionEClass;
 	}
 
 	/**
@@ -353,29 +384,32 @@ public class UserStoriesPackageImpl extends EPackageImpl implements UserStoriesP
 		// Create classes and their features
 		productBacklogEClass = createEClass(PRODUCT_BACKLOG);
 		createEReference(productBacklogEClass, PRODUCT_BACKLOG__USERSTORIES);
+		createEAttribute(productBacklogEClass, PRODUCT_BACKLOG__NAME);
+		createEReference(productBacklogEClass, PRODUCT_BACKLOG__GOALS);
+		createEReference(productBacklogEClass, PRODUCT_BACKLOG__ROLES);
 
 		userStoryEClass = createEClass(USER_STORY);
 		createEReference(userStoryEClass, USER_STORY__TASKS);
-		createEReference(userStoryEClass, USER_STORY__PERSON);
+		createEAttribute(userStoryEClass, USER_STORY__ID);
+		createEReference(userStoryEClass, USER_STORY__ROLE);
+		createEReference(userStoryEClass, USER_STORY__GOAL);
 
 		taskEClass = createEClass(TASK);
-		createEReference(taskEClass, TASK__TEAMMEMBERS);
-		createEReference(taskEClass, TASK__EXCEPTION);
-		createEReference(taskEClass, TASK__NEXT);
-		createEReference(taskEClass, TASK__LAST);
+		createEAttribute(taskEClass, TASK__NAME);
+		createEReference(taskEClass, TASK__EXCEPTIONS);
 
-		personEClass = createEClass(PERSON);
-		createEReference(personEClass, PERSON__USERSTORIES);
+		roleEClass = createEClass(ROLE);
+		createEAttribute(roleEClass, ROLE__NAME);
 
-		teamMemberEClass = createEClass(TEAM_MEMBER);
-		createEReference(teamMemberEClass, TEAM_MEMBER__TASKS);
+		goalEClass = createEClass(GOAL);
+		createEAttribute(goalEClass, GOAL__NAME);
 
-		conditionEClass = createEClass(CONDITION);
+		exceptionEClass = createEClass(EXCEPTION);
+		createEAttribute(exceptionEClass, EXCEPTION__NAME);
 
 		eventEClass = createEClass(EVENT);
 
-		exceptionEClass = createEClass(EXCEPTION);
-		createEReference(exceptionEClass, EXCEPTION__TASKS);
+		conditionEClass = createEClass(CONDITION);
 	}
 
 	/**
@@ -406,36 +440,38 @@ public class UserStoriesPackageImpl extends EPackageImpl implements UserStoriesP
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		teamMemberEClass.getESuperTypes().add(this.getPerson());
-		conditionEClass.getESuperTypes().add(this.getException());
 		eventEClass.getESuperTypes().add(this.getException());
+		conditionEClass.getESuperTypes().add(this.getException());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(productBacklogEClass, ProductBacklog.class, "ProductBacklog", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProductBacklog_Userstories(), this.getUserStory(), null, "userstories", null, 1, -1, ProductBacklog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProductBacklog_Name(), ecorePackage.getEString(), "name", null, 1, 1, ProductBacklog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProductBacklog_Goals(), this.getGoal(), null, "goals", null, 1, -1, ProductBacklog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProductBacklog_Roles(), this.getRole(), null, "roles", null, 1, -1, ProductBacklog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(userStoryEClass, UserStory.class, "UserStory", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUserStory_Tasks(), this.getTask(), null, "tasks", null, 1, -1, UserStory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getUserStory_Person(), this.getPerson(), this.getPerson_Userstories(), "person", null, 1, 1, UserStory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUserStory_Id(), ecorePackage.getEInt(), "id", null, 1, 1, UserStory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUserStory_Role(), this.getRole(), null, "role", null, 1, 1, UserStory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUserStory_Goal(), this.getGoal(), null, "goal", null, 1, 1, UserStory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(taskEClass, Task.class, "Task", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTask_Teammembers(), this.getTeamMember(), this.getTeamMember_Tasks(), "teammembers", null, 1, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTask_Exception(), this.getException(), this.getException_Tasks(), "exception", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTask_Next(), this.getTask(), this.getTask_Last(), "next", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTask_Last(), this.getTask(), this.getTask_Next(), "last", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTask_Name(), ecorePackage.getEString(), "name", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTask_Exceptions(), this.getException(), null, "exceptions", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(personEClass, Person.class, "Person", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPerson_Userstories(), this.getUserStory(), this.getUserStory_Person(), "userstories", null, 0, -1, Person.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(roleEClass, Role.class, "Role", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRole_Name(), ecorePackage.getEString(), "name", null, 1, 1, Role.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(teamMemberEClass, TeamMember.class, "TeamMember", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTeamMember_Tasks(), this.getTask(), this.getTask_Teammembers(), "tasks", null, 0, -1, TeamMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(goalEClass, Goal.class, "Goal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getGoal_Name(), ecorePackage.getEString(), "name", null, 1, 1, Goal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(conditionEClass, Condition.class, "Condition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(exceptionEClass, UserStories.Exception.class, "Exception", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getException_Name(), ecorePackage.getEString(), "name", null, 0, 1, UserStories.Exception.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eventEClass, Event.class, "Event", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(exceptionEClass, UserStories.Exception.class, "Exception", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getException_Tasks(), this.getTask(), this.getTask_Exception(), "tasks", null, 0, -1, UserStories.Exception.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(conditionEClass, Condition.class, "Condition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

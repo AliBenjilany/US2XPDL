@@ -15,10 +15,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link UserStories.Task#getTeammembers <em>Teammembers</em>}</li>
- *   <li>{@link UserStories.Task#getException <em>Exception</em>}</li>
- *   <li>{@link UserStories.Task#getNext <em>Next</em>}</li>
- *   <li>{@link UserStories.Task#getLast <em>Last</em>}</li>
+ *   <li>{@link UserStories.Task#getName <em>Name</em>}</li>
+ *   <li>{@link UserStories.Task#getExceptions <em>Exceptions</em>}</li>
  * </ul>
  *
  * @see UserStories.UserStoriesPackage#getTask()
@@ -27,89 +25,37 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Task extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Teammembers</b></em>' reference list.
-	 * The list contents are of type {@link UserStories.TeamMember}.
-	 * It is bidirectional and its opposite is '{@link UserStories.TeamMember#getTasks <em>Tasks</em>}'.
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Teammembers</em>' reference list.
-	 * @see UserStories.UserStoriesPackage#getTask_Teammembers()
-	 * @see UserStories.TeamMember#getTasks
-	 * @model opposite="tasks" required="true"
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see UserStories.UserStoriesPackage#getTask_Name()
+	 * @model required="true"
 	 * @generated
 	 */
-	EList<TeamMember> getTeammembers();
+	String getName();
 
 	/**
-	 * Returns the value of the '<em><b>Exception</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link UserStories.Exception#getTasks <em>Tasks</em>}'.
+	 * Sets the value of the '{@link UserStories.Task#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Exception</em>' reference.
-	 * @see #setException(UserStories.Exception)
-	 * @see UserStories.UserStoriesPackage#getTask_Exception()
-	 * @see UserStories.Exception#getTasks
-	 * @model opposite="tasks"
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
 	 * @generated
 	 */
-	UserStories.Exception getException();
+	void setName(String value);
 
 	/**
-	 * Sets the value of the '{@link UserStories.Task#getException <em>Exception</em>}' reference.
+	 * Returns the value of the '<em><b>Exceptions</b></em>' containment reference list.
+	 * The list contents are of type {@link UserStories.Exception}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Exception</em>' reference.
-	 * @see #getException()
+	 * @return the value of the '<em>Exceptions</em>' containment reference list.
+	 * @see UserStories.UserStoriesPackage#getTask_Exceptions()
+	 * @model containment="true"
 	 * @generated
 	 */
-	void setException(UserStories.Exception value);
-
-	/**
-	 * Returns the value of the '<em><b>Next</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link UserStories.Task#getLast <em>Last</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Next</em>' reference.
-	 * @see #setNext(Task)
-	 * @see UserStories.UserStoriesPackage#getTask_Next()
-	 * @see UserStories.Task#getLast
-	 * @model opposite="last"
-	 * @generated
-	 */
-	Task getNext();
-
-	/**
-	 * Sets the value of the '{@link UserStories.Task#getNext <em>Next</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Next</em>' reference.
-	 * @see #getNext()
-	 * @generated
-	 */
-	void setNext(Task value);
-
-	/**
-	 * Returns the value of the '<em><b>Last</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link UserStories.Task#getNext <em>Next</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Last</em>' reference.
-	 * @see #setLast(Task)
-	 * @see UserStories.UserStoriesPackage#getTask_Last()
-	 * @see UserStories.Task#getNext
-	 * @model opposite="next"
-	 * @generated
-	 */
-	Task getLast();
-
-	/**
-	 * Sets the value of the '{@link UserStories.Task#getLast <em>Last</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Last</em>' reference.
-	 * @see #getLast()
-	 * @generated
-	 */
-	void setLast(Task value);
+	EList<UserStories.Exception> getExceptions();
 
 } // Task

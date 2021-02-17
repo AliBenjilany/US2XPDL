@@ -16,7 +16,9 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link UserStories.UserStory#getTasks <em>Tasks</em>}</li>
- *   <li>{@link UserStories.UserStory#getPerson <em>Person</em>}</li>
+ *   <li>{@link UserStories.UserStory#getId <em>Id</em>}</li>
+ *   <li>{@link UserStories.UserStory#getRole <em>Role</em>}</li>
+ *   <li>{@link UserStories.UserStory#getGoal <em>Goal</em>}</li>
  * </ul>
  *
  * @see UserStories.UserStoriesPackage#getUserStory()
@@ -37,27 +39,69 @@ public interface UserStory extends EObject {
 	EList<Task> getTasks();
 
 	/**
-	 * Returns the value of the '<em><b>Person</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link UserStories.Person#getUserstories <em>Userstories</em>}'.
+	 * Returns the value of the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Person</em>' reference.
-	 * @see #setPerson(Person)
-	 * @see UserStories.UserStoriesPackage#getUserStory_Person()
-	 * @see UserStories.Person#getUserstories
-	 * @model opposite="userstories" required="true"
+	 * @return the value of the '<em>Id</em>' attribute.
+	 * @see #setId(int)
+	 * @see UserStories.UserStoriesPackage#getUserStory_Id()
+	 * @model id="true" required="true"
 	 * @generated
 	 */
-	Person getPerson();
+	int getId();
 
 	/**
-	 * Sets the value of the '{@link UserStories.UserStory#getPerson <em>Person</em>}' reference.
+	 * Sets the value of the '{@link UserStories.UserStory#getId <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Person</em>' reference.
-	 * @see #getPerson()
+	 * @param value the new value of the '<em>Id</em>' attribute.
+	 * @see #getId()
 	 * @generated
 	 */
-	void setPerson(Person value);
+	void setId(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Role</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Role</em>' reference.
+	 * @see #setRole(Role)
+	 * @see UserStories.UserStoriesPackage#getUserStory_Role()
+	 * @model required="true"
+	 * @generated
+	 */
+	Role getRole();
+
+	/**
+	 * Sets the value of the '{@link UserStories.UserStory#getRole <em>Role</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Role</em>' reference.
+	 * @see #getRole()
+	 * @generated
+	 */
+	void setRole(Role value);
+
+	/**
+	 * Returns the value of the '<em><b>Goal</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Goal</em>' reference.
+	 * @see #setGoal(Goal)
+	 * @see UserStories.UserStoriesPackage#getUserStory_Goal()
+	 * @model required="true"
+	 * @generated
+	 */
+	Goal getGoal();
+
+	/**
+	 * Sets the value of the '{@link UserStories.UserStory#getGoal <em>Goal</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Goal</em>' reference.
+	 * @see #getGoal()
+	 * @generated
+	 */
+	void setGoal(Goal value);
 
 } // UserStory

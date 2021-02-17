@@ -4,10 +4,10 @@ package UserStories.impl;
 
 import UserStories.Condition;
 import UserStories.Event;
-import UserStories.Person;
+import UserStories.Goal;
 import UserStories.ProductBacklog;
+import UserStories.Role;
 import UserStories.Task;
-import UserStories.TeamMember;
 import UserStories.UserStoriesFactory;
 import UserStories.UserStoriesPackage;
 import UserStories.UserStory;
@@ -67,10 +67,10 @@ public class UserStoriesFactoryImpl extends EFactoryImpl implements UserStoriesF
 			case UserStoriesPackage.PRODUCT_BACKLOG: return createProductBacklog();
 			case UserStoriesPackage.USER_STORY: return createUserStory();
 			case UserStoriesPackage.TASK: return createTask();
-			case UserStoriesPackage.PERSON: return createPerson();
-			case UserStoriesPackage.TEAM_MEMBER: return createTeamMember();
-			case UserStoriesPackage.CONDITION: return createCondition();
+			case UserStoriesPackage.ROLE: return createRole();
+			case UserStoriesPackage.GOAL: return createGoal();
 			case UserStoriesPackage.EVENT: return createEvent();
+			case UserStoriesPackage.CONDITION: return createCondition();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -115,9 +115,9 @@ public class UserStoriesFactoryImpl extends EFactoryImpl implements UserStoriesF
 	 * @generated
 	 */
 	@Override
-	public Person createPerson() {
-		PersonImpl person = new PersonImpl();
-		return person;
+	public Role createRole() {
+		RoleImpl role = new RoleImpl();
+		return role;
 	}
 
 	/**
@@ -126,20 +126,9 @@ public class UserStoriesFactoryImpl extends EFactoryImpl implements UserStoriesF
 	 * @generated
 	 */
 	@Override
-	public TeamMember createTeamMember() {
-		TeamMemberImpl teamMember = new TeamMemberImpl();
-		return teamMember;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Condition createCondition() {
-		ConditionImpl condition = new ConditionImpl();
-		return condition;
+	public Goal createGoal() {
+		GoalImpl goal = new GoalImpl();
+		return goal;
 	}
 
 	/**
@@ -151,6 +140,17 @@ public class UserStoriesFactoryImpl extends EFactoryImpl implements UserStoriesF
 	public Event createEvent() {
 		EventImpl event = new EventImpl();
 		return event;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Condition createCondition() {
+		ConditionImpl condition = new ConditionImpl();
+		return condition;
 	}
 
 	/**

@@ -49,31 +49,22 @@ public interface UserStoriesFactory extends EFactory {
 	Task createTask();
 
 	/**
-	 * Returns a new object of class '<em>Person</em>'.
+	 * Returns a new object of class '<em>Role</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Person</em>'.
+	 * @return a new object of class '<em>Role</em>'.
 	 * @generated
 	 */
-	Person createPerson();
+	Role createRole();
 
 	/**
-	 * Returns a new object of class '<em>Team Member</em>'.
+	 * Returns a new object of class '<em>Goal</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Team Member</em>'.
+	 * @return a new object of class '<em>Goal</em>'.
 	 * @generated
 	 */
-	TeamMember createTeamMember();
-
-	/**
-	 * Returns a new object of class '<em>Condition</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Condition</em>'.
-	 * @generated
-	 */
-	Condition createCondition();
+	Goal createGoal();
 
 	/**
 	 * Returns a new object of class '<em>Event</em>'.
@@ -83,6 +74,15 @@ public interface UserStoriesFactory extends EFactory {
 	 * @generated
 	 */
 	Event createEvent();
+
+	/**
+	 * Returns a new object of class '<em>Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Condition</em>'.
+	 * @generated
+	 */
+	Condition createCondition();
 
 	/**
 	 * Returns the package supported by this factory.

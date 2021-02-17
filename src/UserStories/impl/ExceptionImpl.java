@@ -2,22 +2,14 @@
  */
 package UserStories.impl;
 
-import UserStories.Task;
 import UserStories.UserStoriesPackage;
 
-import java.util.Collection;
-
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,21 +19,31 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link UserStories.impl.ExceptionImpl#getTasks <em>Tasks</em>}</li>
+ *   <li>{@link UserStories.impl.ExceptionImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class ExceptionImpl extends MinimalEObjectImpl.Container implements UserStories.Exception {
 	/**
-	 * The cached value of the '{@link #getTasks() <em>Tasks</em>}' reference list.
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTasks()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Task> tasks;
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -68,26 +70,8 @@ public abstract class ExceptionImpl extends MinimalEObjectImpl.Container impleme
 	 * @generated
 	 */
 	@Override
-	public EList<Task> getTasks() {
-		if (tasks == null) {
-			tasks = new EObjectWithInverseResolvingEList<Task>(Task.class, this, UserStoriesPackage.EXCEPTION__TASKS, UserStoriesPackage.TASK__EXCEPTION);
-		}
-		return tasks;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case UserStoriesPackage.EXCEPTION__TASKS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getTasks()).basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
+	public String getName() {
+		return name;
 	}
 
 	/**
@@ -96,12 +80,11 @@ public abstract class ExceptionImpl extends MinimalEObjectImpl.Container impleme
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case UserStoriesPackage.EXCEPTION__TASKS:
-				return ((InternalEList<?>)getTasks()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UserStoriesPackage.EXCEPTION__NAME, oldName, name));
 	}
 
 	/**
@@ -112,8 +95,8 @@ public abstract class ExceptionImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case UserStoriesPackage.EXCEPTION__TASKS:
-				return getTasks();
+			case UserStoriesPackage.EXCEPTION__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -123,13 +106,11 @@ public abstract class ExceptionImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case UserStoriesPackage.EXCEPTION__TASKS:
-				getTasks().clear();
-				getTasks().addAll((Collection<? extends Task>)newValue);
+			case UserStoriesPackage.EXCEPTION__NAME:
+				setName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -143,8 +124,8 @@ public abstract class ExceptionImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case UserStoriesPackage.EXCEPTION__TASKS:
-				getTasks().clear();
+			case UserStoriesPackage.EXCEPTION__NAME:
+				setName(NAME_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -158,10 +139,26 @@ public abstract class ExceptionImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case UserStoriesPackage.EXCEPTION__TASKS:
-				return tasks != null && !tasks.isEmpty();
+			case UserStoriesPackage.EXCEPTION__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ExceptionImpl
