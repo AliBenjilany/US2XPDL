@@ -131,22 +131,13 @@ public interface UserStoriesPackage extends EPackage {
 	int USER_STORY = 1;
 
 	/**
-	 * The feature id for the '<em><b>Tasks</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int USER_STORY__TASKS = 0;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STORY__ID = 1;
+	int USER_STORY__ID = 0;
 
 	/**
 	 * The feature id for the '<em><b>Role</b></em>' reference.
@@ -155,7 +146,7 @@ public interface UserStoriesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STORY__ROLE = 2;
+	int USER_STORY__ROLE = 1;
 
 	/**
 	 * The feature id for the '<em><b>Goal</b></em>' reference.
@@ -164,7 +155,16 @@ public interface UserStoriesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int USER_STORY__GOAL = 3;
+	int USER_STORY__GOAL = 2;
+
+	/**
+	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER_STORY__ELEMENTS = 3;
 
 	/**
 	 * The number of structural features of the '<em>User Story</em>' class.
@@ -185,6 +185,34 @@ public interface UserStoriesPackage extends EPackage {
 	int USER_STORY_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link UserStories.impl.ElementImpl <em>Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see UserStories.impl.ElementImpl
+	 * @see UserStories.impl.UserStoriesPackageImpl#getElement()
+	 * @generated
+	 */
+	int ELEMENT = 14;
+
+	/**
+	 * The number of structural features of the '<em>Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link UserStories.impl.TaskImpl <em>Task</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -201,16 +229,7 @@ public interface UserStoriesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Exceptions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TASK__EXCEPTIONS = 1;
+	int TASK__NAME = ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Task</em>' class.
@@ -219,7 +238,7 @@ public interface UserStoriesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_FEATURE_COUNT = 2;
+	int TASK_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Task</em>' class.
@@ -228,7 +247,7 @@ public interface UserStoriesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_OPERATION_COUNT = 0;
+	int TASK_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link UserStories.impl.RoleImpl <em>Role</em>}' class.
@@ -321,7 +340,16 @@ public interface UserStoriesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCEPTION__NAME = 0;
+	int EXCEPTION__NAME = ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Task</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXCEPTION__TASK = ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Exception</em>' class.
@@ -330,7 +358,7 @@ public interface UserStoriesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCEPTION_FEATURE_COUNT = 1;
+	int EXCEPTION_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Exception</em>' class.
@@ -339,7 +367,7 @@ public interface UserStoriesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCEPTION_OPERATION_COUNT = 0;
+	int EXCEPTION_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link UserStories.impl.EventImpl <em>Event</em>}' class.
@@ -361,6 +389,15 @@ public interface UserStoriesPackage extends EPackage {
 	int EVENT__NAME = EXCEPTION__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Task</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT__TASK = EXCEPTION__TASK;
+
+	/**
 	 * The number of structural features of the '<em>Event</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -379,6 +416,144 @@ public interface UserStoriesPackage extends EPackage {
 	int EVENT_OPERATION_COUNT = EXCEPTION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link UserStories.impl.StartEventImpl <em>Start Event</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see UserStories.impl.StartEventImpl
+	 * @see UserStories.impl.UserStoriesPackageImpl#getStartEvent()
+	 * @generated
+	 */
+	int START_EVENT = 7;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int START_EVENT__NAME = EVENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Task</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int START_EVENT__TASK = EVENT__TASK;
+
+	/**
+	 * The number of structural features of the '<em>Start Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int START_EVENT_FEATURE_COUNT = EVENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Start Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int START_EVENT_OPERATION_COUNT = EVENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link UserStories.impl.IntermediateEventImpl <em>Intermediate Event</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see UserStories.impl.IntermediateEventImpl
+	 * @see UserStories.impl.UserStoriesPackageImpl#getIntermediateEvent()
+	 * @generated
+	 */
+	int INTERMEDIATE_EVENT = 8;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERMEDIATE_EVENT__NAME = EVENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Task</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERMEDIATE_EVENT__TASK = EVENT__TASK;
+
+	/**
+	 * The number of structural features of the '<em>Intermediate Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERMEDIATE_EVENT_FEATURE_COUNT = EVENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Intermediate Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERMEDIATE_EVENT_OPERATION_COUNT = EVENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link UserStories.impl.EndEventImpl <em>End Event</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see UserStories.impl.EndEventImpl
+	 * @see UserStories.impl.UserStoriesPackageImpl#getEndEvent()
+	 * @generated
+	 */
+	int END_EVENT = 9;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int END_EVENT__NAME = EVENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Task</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int END_EVENT__TASK = EVENT__TASK;
+
+	/**
+	 * The number of structural features of the '<em>End Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int END_EVENT_FEATURE_COUNT = EVENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>End Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int END_EVENT_OPERATION_COUNT = EVENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link UserStories.impl.ConditionImpl <em>Condition</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -386,7 +561,7 @@ public interface UserStoriesPackage extends EPackage {
 	 * @see UserStories.impl.UserStoriesPackageImpl#getCondition()
 	 * @generated
 	 */
-	int CONDITION = 7;
+	int CONDITION = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -396,6 +571,15 @@ public interface UserStoriesPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONDITION__NAME = EXCEPTION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Task</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION__TASK = EXCEPTION__TASK;
 
 	/**
 	 * The number of structural features of the '<em>Condition</em>' class.
@@ -414,6 +598,145 @@ public interface UserStoriesPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONDITION_OPERATION_COUNT = EXCEPTION_OPERATION_COUNT + 0;
+
+
+	/**
+	 * The meta object id for the '{@link UserStories.impl.InclusiveImpl <em>Inclusive</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see UserStories.impl.InclusiveImpl
+	 * @see UserStories.impl.UserStoriesPackageImpl#getInclusive()
+	 * @generated
+	 */
+	int INCLUSIVE = 11;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INCLUSIVE__NAME = CONDITION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Task</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INCLUSIVE__TASK = CONDITION__TASK;
+
+	/**
+	 * The number of structural features of the '<em>Inclusive</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INCLUSIVE_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Inclusive</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INCLUSIVE_OPERATION_COUNT = CONDITION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link UserStories.impl.ExclusiveImpl <em>Exclusive</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see UserStories.impl.ExclusiveImpl
+	 * @see UserStories.impl.UserStoriesPackageImpl#getExclusive()
+	 * @generated
+	 */
+	int EXCLUSIVE = 12;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXCLUSIVE__NAME = CONDITION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Task</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXCLUSIVE__TASK = CONDITION__TASK;
+
+	/**
+	 * The number of structural features of the '<em>Exclusive</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXCLUSIVE_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Exclusive</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXCLUSIVE_OPERATION_COUNT = CONDITION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link UserStories.impl.ParallelImpl <em>Parallel</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see UserStories.impl.ParallelImpl
+	 * @see UserStories.impl.UserStoriesPackageImpl#getParallel()
+	 * @generated
+	 */
+	int PARALLEL = 13;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARALLEL__NAME = CONDITION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Task</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARALLEL__TASK = CONDITION__TASK;
+
+	/**
+	 * The number of structural features of the '<em>Parallel</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARALLEL_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Parallel</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARALLEL_OPERATION_COUNT = CONDITION_OPERATION_COUNT + 0;
 
 
 	/**
@@ -481,17 +804,6 @@ public interface UserStoriesPackage extends EPackage {
 	EClass getUserStory();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link UserStories.UserStory#getTasks <em>Tasks</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Tasks</em>'.
-	 * @see UserStories.UserStory#getTasks()
-	 * @see #getUserStory()
-	 * @generated
-	 */
-	EReference getUserStory_Tasks();
-
-	/**
 	 * Returns the meta object for the attribute '{@link UserStories.UserStory#getId <em>Id</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -525,6 +837,17 @@ public interface UserStoriesPackage extends EPackage {
 	EReference getUserStory_Goal();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link UserStories.UserStory#getElements <em>Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Elements</em>'.
+	 * @see UserStories.UserStory#getElements()
+	 * @see #getUserStory()
+	 * @generated
+	 */
+	EReference getUserStory_Elements();
+
+	/**
 	 * Returns the meta object for class '{@link UserStories.Task <em>Task</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -544,17 +867,6 @@ public interface UserStoriesPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTask_Name();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link UserStories.Task#getExceptions <em>Exceptions</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Exceptions</em>'.
-	 * @see UserStories.Task#getExceptions()
-	 * @see #getTask()
-	 * @generated
-	 */
-	EReference getTask_Exceptions();
 
 	/**
 	 * Returns the meta object for class '{@link UserStories.Role <em>Role</em>}'.
@@ -620,6 +932,17 @@ public interface UserStoriesPackage extends EPackage {
 	EAttribute getException_Name();
 
 	/**
+	 * Returns the meta object for the reference '{@link UserStories.Exception#getTask <em>Task</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Task</em>'.
+	 * @see UserStories.Exception#getTask()
+	 * @see #getException()
+	 * @generated
+	 */
+	EReference getException_Task();
+
+	/**
 	 * Returns the meta object for class '{@link UserStories.Event <em>Event</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -630,6 +953,36 @@ public interface UserStoriesPackage extends EPackage {
 	EClass getEvent();
 
 	/**
+	 * Returns the meta object for class '{@link UserStories.StartEvent <em>Start Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Start Event</em>'.
+	 * @see UserStories.StartEvent
+	 * @generated
+	 */
+	EClass getStartEvent();
+
+	/**
+	 * Returns the meta object for class '{@link UserStories.IntermediateEvent <em>Intermediate Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Intermediate Event</em>'.
+	 * @see UserStories.IntermediateEvent
+	 * @generated
+	 */
+	EClass getIntermediateEvent();
+
+	/**
+	 * Returns the meta object for class '{@link UserStories.EndEvent <em>End Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>End Event</em>'.
+	 * @see UserStories.EndEvent
+	 * @generated
+	 */
+	EClass getEndEvent();
+
+	/**
 	 * Returns the meta object for class '{@link UserStories.Condition <em>Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -638,6 +991,46 @@ public interface UserStoriesPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getCondition();
+
+	/**
+	 * Returns the meta object for class '{@link UserStories.Inclusive <em>Inclusive</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Inclusive</em>'.
+	 * @see UserStories.Inclusive
+	 * @generated
+	 */
+	EClass getInclusive();
+
+	/**
+	 * Returns the meta object for class '{@link UserStories.Exclusive <em>Exclusive</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Exclusive</em>'.
+	 * @see UserStories.Exclusive
+	 * @generated
+	 */
+	EClass getExclusive();
+
+	/**
+	 * Returns the meta object for class '{@link UserStories.Parallel <em>Parallel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parallel</em>'.
+	 * @see UserStories.Parallel
+	 * @generated
+	 */
+	EClass getParallel();
+
+	/**
+	 * Returns the meta object for class '{@link UserStories.Element <em>Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Element</em>'.
+	 * @see UserStories.Element
+	 * @generated
+	 */
+	EClass getElement();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -715,14 +1108,6 @@ public interface UserStoriesPackage extends EPackage {
 		EClass USER_STORY = eINSTANCE.getUserStory();
 
 		/**
-		 * The meta object literal for the '<em><b>Tasks</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference USER_STORY__TASKS = eINSTANCE.getUserStory_Tasks();
-
-		/**
 		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -747,6 +1132,14 @@ public interface UserStoriesPackage extends EPackage {
 		EReference USER_STORY__GOAL = eINSTANCE.getUserStory_Goal();
 
 		/**
+		 * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference USER_STORY__ELEMENTS = eINSTANCE.getUserStory_Elements();
+
+		/**
 		 * The meta object literal for the '{@link UserStories.impl.TaskImpl <em>Task</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -763,14 +1156,6 @@ public interface UserStoriesPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TASK__NAME = eINSTANCE.getTask_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Exceptions</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TASK__EXCEPTIONS = eINSTANCE.getTask_Exceptions();
 
 		/**
 		 * The meta object literal for the '{@link UserStories.impl.RoleImpl <em>Role</em>}' class.
@@ -827,6 +1212,14 @@ public interface UserStoriesPackage extends EPackage {
 		EAttribute EXCEPTION__NAME = eINSTANCE.getException_Name();
 
 		/**
+		 * The meta object literal for the '<em><b>Task</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXCEPTION__TASK = eINSTANCE.getException_Task();
+
+		/**
 		 * The meta object literal for the '{@link UserStories.impl.EventImpl <em>Event</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -837,6 +1230,36 @@ public interface UserStoriesPackage extends EPackage {
 		EClass EVENT = eINSTANCE.getEvent();
 
 		/**
+		 * The meta object literal for the '{@link UserStories.impl.StartEventImpl <em>Start Event</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see UserStories.impl.StartEventImpl
+		 * @see UserStories.impl.UserStoriesPackageImpl#getStartEvent()
+		 * @generated
+		 */
+		EClass START_EVENT = eINSTANCE.getStartEvent();
+
+		/**
+		 * The meta object literal for the '{@link UserStories.impl.IntermediateEventImpl <em>Intermediate Event</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see UserStories.impl.IntermediateEventImpl
+		 * @see UserStories.impl.UserStoriesPackageImpl#getIntermediateEvent()
+		 * @generated
+		 */
+		EClass INTERMEDIATE_EVENT = eINSTANCE.getIntermediateEvent();
+
+		/**
+		 * The meta object literal for the '{@link UserStories.impl.EndEventImpl <em>End Event</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see UserStories.impl.EndEventImpl
+		 * @see UserStories.impl.UserStoriesPackageImpl#getEndEvent()
+		 * @generated
+		 */
+		EClass END_EVENT = eINSTANCE.getEndEvent();
+
+		/**
 		 * The meta object literal for the '{@link UserStories.impl.ConditionImpl <em>Condition</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -845,6 +1268,46 @@ public interface UserStoriesPackage extends EPackage {
 		 * @generated
 		 */
 		EClass CONDITION = eINSTANCE.getCondition();
+
+		/**
+		 * The meta object literal for the '{@link UserStories.impl.InclusiveImpl <em>Inclusive</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see UserStories.impl.InclusiveImpl
+		 * @see UserStories.impl.UserStoriesPackageImpl#getInclusive()
+		 * @generated
+		 */
+		EClass INCLUSIVE = eINSTANCE.getInclusive();
+
+		/**
+		 * The meta object literal for the '{@link UserStories.impl.ExclusiveImpl <em>Exclusive</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see UserStories.impl.ExclusiveImpl
+		 * @see UserStories.impl.UserStoriesPackageImpl#getExclusive()
+		 * @generated
+		 */
+		EClass EXCLUSIVE = eINSTANCE.getExclusive();
+
+		/**
+		 * The meta object literal for the '{@link UserStories.impl.ParallelImpl <em>Parallel</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see UserStories.impl.ParallelImpl
+		 * @see UserStories.impl.UserStoriesPackageImpl#getParallel()
+		 * @generated
+		 */
+		EClass PARALLEL = eINSTANCE.getParallel();
+
+		/**
+		 * The meta object literal for the '{@link UserStories.impl.ElementImpl <em>Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see UserStories.impl.ElementImpl
+		 * @see UserStories.impl.UserStoriesPackageImpl#getElement()
+		 * @generated
+		 */
+		EClass ELEMENT = eINSTANCE.getElement();
 
 	}
 

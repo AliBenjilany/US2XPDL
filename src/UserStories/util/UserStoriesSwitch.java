@@ -3,10 +3,17 @@
 package UserStories.util;
 
 import UserStories.Condition;
+import UserStories.Element;
+import UserStories.EndEvent;
 import UserStories.Event;
+import UserStories.Exclusive;
 import UserStories.Goal;
+import UserStories.Inclusive;
+import UserStories.IntermediateEvent;
+import UserStories.Parallel;
 import UserStories.ProductBacklog;
 import UserStories.Role;
+import UserStories.StartEvent;
 import UserStories.Task;
 import UserStories.UserStoriesPackage;
 import UserStories.UserStory;
@@ -88,6 +95,7 @@ public class UserStoriesSwitch<T> extends Switch<T> {
 			case UserStoriesPackage.TASK: {
 				Task task = (Task)theEObject;
 				T result = caseTask(task);
+				if (result == null) result = caseElement(task);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -106,6 +114,7 @@ public class UserStoriesSwitch<T> extends Switch<T> {
 			case UserStoriesPackage.EXCEPTION: {
 				UserStories.Exception exception = (UserStories.Exception)theEObject;
 				T result = caseException(exception);
+				if (result == null) result = caseElement(exception);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -113,6 +122,34 @@ public class UserStoriesSwitch<T> extends Switch<T> {
 				Event event = (Event)theEObject;
 				T result = caseEvent(event);
 				if (result == null) result = caseException(event);
+				if (result == null) result = caseElement(event);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UserStoriesPackage.START_EVENT: {
+				StartEvent startEvent = (StartEvent)theEObject;
+				T result = caseStartEvent(startEvent);
+				if (result == null) result = caseEvent(startEvent);
+				if (result == null) result = caseException(startEvent);
+				if (result == null) result = caseElement(startEvent);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UserStoriesPackage.INTERMEDIATE_EVENT: {
+				IntermediateEvent intermediateEvent = (IntermediateEvent)theEObject;
+				T result = caseIntermediateEvent(intermediateEvent);
+				if (result == null) result = caseEvent(intermediateEvent);
+				if (result == null) result = caseException(intermediateEvent);
+				if (result == null) result = caseElement(intermediateEvent);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UserStoriesPackage.END_EVENT: {
+				EndEvent endEvent = (EndEvent)theEObject;
+				T result = caseEndEvent(endEvent);
+				if (result == null) result = caseEvent(endEvent);
+				if (result == null) result = caseException(endEvent);
+				if (result == null) result = caseElement(endEvent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -120,6 +157,40 @@ public class UserStoriesSwitch<T> extends Switch<T> {
 				Condition condition = (Condition)theEObject;
 				T result = caseCondition(condition);
 				if (result == null) result = caseException(condition);
+				if (result == null) result = caseElement(condition);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UserStoriesPackage.INCLUSIVE: {
+				Inclusive inclusive = (Inclusive)theEObject;
+				T result = caseInclusive(inclusive);
+				if (result == null) result = caseCondition(inclusive);
+				if (result == null) result = caseException(inclusive);
+				if (result == null) result = caseElement(inclusive);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UserStoriesPackage.EXCLUSIVE: {
+				Exclusive exclusive = (Exclusive)theEObject;
+				T result = caseExclusive(exclusive);
+				if (result == null) result = caseCondition(exclusive);
+				if (result == null) result = caseException(exclusive);
+				if (result == null) result = caseElement(exclusive);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UserStoriesPackage.PARALLEL: {
+				Parallel parallel = (Parallel)theEObject;
+				T result = caseParallel(parallel);
+				if (result == null) result = caseCondition(parallel);
+				if (result == null) result = caseException(parallel);
+				if (result == null) result = caseElement(parallel);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UserStoriesPackage.ELEMENT: {
+				Element element = (Element)theEObject;
+				T result = caseElement(element);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -233,6 +304,51 @@ public class UserStoriesSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Start Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Start Event</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStartEvent(StartEvent object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Intermediate Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Intermediate Event</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIntermediateEvent(IntermediateEvent object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>End Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>End Event</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEndEvent(EndEvent object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Condition</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -244,6 +360,66 @@ public class UserStoriesSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseCondition(Condition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Inclusive</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Inclusive</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInclusive(Inclusive object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Exclusive</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Exclusive</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExclusive(Exclusive object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parallel</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parallel</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParallel(Parallel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseElement(Element object) {
 		return null;
 	}
 

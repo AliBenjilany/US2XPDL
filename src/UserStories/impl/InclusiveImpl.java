@@ -2,25 +2,25 @@
  */
 package UserStories.impl;
 
-import UserStories.Event;
+import UserStories.Inclusive;
 import UserStories.UserStoriesPackage;
 
 import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Event</b></em>'.
+ * An implementation of the model object '<em><b>Inclusive</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public abstract class EventImpl extends ExceptionImpl implements Event {
+public class InclusiveImpl extends ConditionImpl implements Inclusive {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected EventImpl() {
+	protected InclusiveImpl() {
 		super();
 	}
 
@@ -31,7 +31,7 @@ public abstract class EventImpl extends ExceptionImpl implements Event {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return UserStoriesPackage.Literals.EVENT;
+		return UserStoriesPackage.Literals.INCLUSIVE;
 	}
 
-} //EventImpl
+} //InclusiveImpl

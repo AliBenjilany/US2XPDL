@@ -2,10 +2,6 @@
  */
 package UserStories;
 
-import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Task</b></em>'.
@@ -16,14 +12,13 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link UserStories.Task#getName <em>Name</em>}</li>
- *   <li>{@link UserStories.Task#getExceptions <em>Exceptions</em>}</li>
  * </ul>
  *
  * @see UserStories.UserStoriesPackage#getTask()
  * @model
  * @generated
  */
-public interface Task extends EObject {
+public interface Task extends Element {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -45,17 +40,5 @@ public interface Task extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Exceptions</b></em>' containment reference list.
-	 * The list contents are of type {@link UserStories.Exception}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Exceptions</em>' containment reference list.
-	 * @see UserStories.UserStoriesPackage#getTask_Exceptions()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<UserStories.Exception> getExceptions();
 
 } // Task

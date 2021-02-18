@@ -2,11 +2,15 @@
  */
 package UserStories.impl;
 
-import UserStories.Condition;
-import UserStories.Event;
+import UserStories.EndEvent;
+import UserStories.Exclusive;
 import UserStories.Goal;
+import UserStories.Inclusive;
+import UserStories.IntermediateEvent;
+import UserStories.Parallel;
 import UserStories.ProductBacklog;
 import UserStories.Role;
+import UserStories.StartEvent;
 import UserStories.Task;
 import UserStories.UserStoriesFactory;
 import UserStories.UserStoriesPackage;
@@ -69,8 +73,12 @@ public class UserStoriesFactoryImpl extends EFactoryImpl implements UserStoriesF
 			case UserStoriesPackage.TASK: return createTask();
 			case UserStoriesPackage.ROLE: return createRole();
 			case UserStoriesPackage.GOAL: return createGoal();
-			case UserStoriesPackage.EVENT: return createEvent();
-			case UserStoriesPackage.CONDITION: return createCondition();
+			case UserStoriesPackage.START_EVENT: return createStartEvent();
+			case UserStoriesPackage.INTERMEDIATE_EVENT: return createIntermediateEvent();
+			case UserStoriesPackage.END_EVENT: return createEndEvent();
+			case UserStoriesPackage.INCLUSIVE: return createInclusive();
+			case UserStoriesPackage.EXCLUSIVE: return createExclusive();
+			case UserStoriesPackage.PARALLEL: return createParallel();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -137,9 +145,9 @@ public class UserStoriesFactoryImpl extends EFactoryImpl implements UserStoriesF
 	 * @generated
 	 */
 	@Override
-	public Event createEvent() {
-		EventImpl event = new EventImpl();
-		return event;
+	public StartEvent createStartEvent() {
+		StartEventImpl startEvent = new StartEventImpl();
+		return startEvent;
 	}
 
 	/**
@@ -148,9 +156,53 @@ public class UserStoriesFactoryImpl extends EFactoryImpl implements UserStoriesF
 	 * @generated
 	 */
 	@Override
-	public Condition createCondition() {
-		ConditionImpl condition = new ConditionImpl();
-		return condition;
+	public IntermediateEvent createIntermediateEvent() {
+		IntermediateEventImpl intermediateEvent = new IntermediateEventImpl();
+		return intermediateEvent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EndEvent createEndEvent() {
+		EndEventImpl endEvent = new EndEventImpl();
+		return endEvent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Inclusive createInclusive() {
+		InclusiveImpl inclusive = new InclusiveImpl();
+		return inclusive;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Exclusive createExclusive() {
+		ExclusiveImpl exclusive = new ExclusiveImpl();
+		return exclusive;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Parallel createParallel() {
+		ParallelImpl parallel = new ParallelImpl();
+		return parallel;
 	}
 
 	/**

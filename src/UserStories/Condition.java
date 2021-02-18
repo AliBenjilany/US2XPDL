@@ -10,7 +10,7 @@ package UserStories;
  *
  *
  * @see UserStories.UserStoriesPackage#getCondition()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Condition extends UserStories.Exception {

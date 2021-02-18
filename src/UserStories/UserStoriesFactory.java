@@ -67,22 +67,58 @@ public interface UserStoriesFactory extends EFactory {
 	Goal createGoal();
 
 	/**
-	 * Returns a new object of class '<em>Event</em>'.
+	 * Returns a new object of class '<em>Start Event</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Event</em>'.
+	 * @return a new object of class '<em>Start Event</em>'.
 	 * @generated
 	 */
-	Event createEvent();
+	StartEvent createStartEvent();
 
 	/**
-	 * Returns a new object of class '<em>Condition</em>'.
+	 * Returns a new object of class '<em>Intermediate Event</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Condition</em>'.
+	 * @return a new object of class '<em>Intermediate Event</em>'.
 	 * @generated
 	 */
-	Condition createCondition();
+	IntermediateEvent createIntermediateEvent();
+
+	/**
+	 * Returns a new object of class '<em>End Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>End Event</em>'.
+	 * @generated
+	 */
+	EndEvent createEndEvent();
+
+	/**
+	 * Returns a new object of class '<em>Inclusive</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Inclusive</em>'.
+	 * @generated
+	 */
+	Inclusive createInclusive();
+
+	/**
+	 * Returns a new object of class '<em>Exclusive</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Exclusive</em>'.
+	 * @generated
+	 */
+	Exclusive createExclusive();
+
+	/**
+	 * Returns a new object of class '<em>Parallel</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Parallel</em>'.
+	 * @generated
+	 */
+	Parallel createParallel();
 
 	/**
 	 * Returns the package supported by this factory.

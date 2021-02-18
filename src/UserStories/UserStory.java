@@ -15,10 +15,10 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link UserStories.UserStory#getTasks <em>Tasks</em>}</li>
  *   <li>{@link UserStories.UserStory#getId <em>Id</em>}</li>
  *   <li>{@link UserStories.UserStory#getRole <em>Role</em>}</li>
  *   <li>{@link UserStories.UserStory#getGoal <em>Goal</em>}</li>
+ *   <li>{@link UserStories.UserStory#getElements <em>Elements</em>}</li>
  * </ul>
  *
  * @see UserStories.UserStoriesPackage#getUserStory()
@@ -26,18 +26,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface UserStory extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Tasks</b></em>' containment reference list.
-	 * The list contents are of type {@link UserStories.Task}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Tasks</em>' containment reference list.
-	 * @see UserStories.UserStoriesPackage#getUserStory_Tasks()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	EList<Task> getTasks();
-
 	/**
 	 * Returns the value of the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -103,5 +91,17 @@ public interface UserStory extends EObject {
 	 * @generated
 	 */
 	void setGoal(Goal value);
+
+	/**
+	 * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
+	 * The list contents are of type {@link UserStories.Element}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Elements</em>' containment reference list.
+	 * @see UserStories.UserStoriesPackage#getUserStory_Elements()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	EList<Element> getElements();
 
 } // UserStory

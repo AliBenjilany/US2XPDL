@@ -2,9 +2,9 @@
  */
 package UserStories.impl;
 
+import UserStories.Element;
 import UserStories.Goal;
 import UserStories.Role;
-import UserStories.Task;
 import UserStories.UserStoriesPackage;
 import UserStories.UserStory;
 
@@ -32,25 +32,15 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link UserStories.impl.UserStoryImpl#getTasks <em>Tasks</em>}</li>
  *   <li>{@link UserStories.impl.UserStoryImpl#getId <em>Id</em>}</li>
  *   <li>{@link UserStories.impl.UserStoryImpl#getRole <em>Role</em>}</li>
  *   <li>{@link UserStories.impl.UserStoryImpl#getGoal <em>Goal</em>}</li>
+ *   <li>{@link UserStories.impl.UserStoryImpl#getElements <em>Elements</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class UserStoryImpl extends MinimalEObjectImpl.Container implements UserStory {
-	/**
-	 * The cached value of the '{@link #getTasks() <em>Tasks</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTasks()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Task> tasks;
-
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -92,6 +82,16 @@ public class UserStoryImpl extends MinimalEObjectImpl.Container implements UserS
 	protected Goal goal;
 
 	/**
+	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getElements()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Element> elements;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -108,19 +108,6 @@ public class UserStoryImpl extends MinimalEObjectImpl.Container implements UserS
 	@Override
 	protected EClass eStaticClass() {
 		return UserStoriesPackage.Literals.USER_STORY;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<Task> getTasks() {
-		if (tasks == null) {
-			tasks = new EObjectContainmentEList<Task>(Task.class, this, UserStoriesPackage.USER_STORY__TASKS);
-		}
-		return tasks;
 	}
 
 	/**
@@ -232,10 +219,23 @@ public class UserStoryImpl extends MinimalEObjectImpl.Container implements UserS
 	 * @generated
 	 */
 	@Override
+	public EList<Element> getElements() {
+		if (elements == null) {
+			elements = new EObjectContainmentEList<Element>(Element.class, this, UserStoriesPackage.USER_STORY__ELEMENTS);
+		}
+		return elements;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case UserStoriesPackage.USER_STORY__TASKS:
-				return ((InternalEList<?>)getTasks()).basicRemove(otherEnd, msgs);
+			case UserStoriesPackage.USER_STORY__ELEMENTS:
+				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -248,8 +248,6 @@ public class UserStoryImpl extends MinimalEObjectImpl.Container implements UserS
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case UserStoriesPackage.USER_STORY__TASKS:
-				return getTasks();
 			case UserStoriesPackage.USER_STORY__ID:
 				return getId();
 			case UserStoriesPackage.USER_STORY__ROLE:
@@ -258,6 +256,8 @@ public class UserStoryImpl extends MinimalEObjectImpl.Container implements UserS
 			case UserStoriesPackage.USER_STORY__GOAL:
 				if (resolve) return getGoal();
 				return basicGetGoal();
+			case UserStoriesPackage.USER_STORY__ELEMENTS:
+				return getElements();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -271,10 +271,6 @@ public class UserStoryImpl extends MinimalEObjectImpl.Container implements UserS
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case UserStoriesPackage.USER_STORY__TASKS:
-				getTasks().clear();
-				getTasks().addAll((Collection<? extends Task>)newValue);
-				return;
 			case UserStoriesPackage.USER_STORY__ID:
 				setId((Integer)newValue);
 				return;
@@ -283,6 +279,10 @@ public class UserStoryImpl extends MinimalEObjectImpl.Container implements UserS
 				return;
 			case UserStoriesPackage.USER_STORY__GOAL:
 				setGoal((Goal)newValue);
+				return;
+			case UserStoriesPackage.USER_STORY__ELEMENTS:
+				getElements().clear();
+				getElements().addAll((Collection<? extends Element>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -296,9 +296,6 @@ public class UserStoryImpl extends MinimalEObjectImpl.Container implements UserS
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case UserStoriesPackage.USER_STORY__TASKS:
-				getTasks().clear();
-				return;
 			case UserStoriesPackage.USER_STORY__ID:
 				setId(ID_EDEFAULT);
 				return;
@@ -307,6 +304,9 @@ public class UserStoryImpl extends MinimalEObjectImpl.Container implements UserS
 				return;
 			case UserStoriesPackage.USER_STORY__GOAL:
 				setGoal((Goal)null);
+				return;
+			case UserStoriesPackage.USER_STORY__ELEMENTS:
+				getElements().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -320,14 +320,14 @@ public class UserStoryImpl extends MinimalEObjectImpl.Container implements UserS
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case UserStoriesPackage.USER_STORY__TASKS:
-				return tasks != null && !tasks.isEmpty();
 			case UserStoriesPackage.USER_STORY__ID:
 				return id != ID_EDEFAULT;
 			case UserStoriesPackage.USER_STORY__ROLE:
 				return role != null;
 			case UserStoriesPackage.USER_STORY__GOAL:
 				return goal != null;
+			case UserStoriesPackage.USER_STORY__ELEMENTS:
+				return elements != null && !elements.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
