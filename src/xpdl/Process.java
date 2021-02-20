@@ -32,7 +32,7 @@ public interface Process extends EObject {
 	 * @return the value of the '<em>Objective</em>' attribute.
 	 * @see #setObjective(String)
 	 * @see xpdl.XpdlPackage#getProcess_Objective()
-	 * @model default="No objective set for this process"
+	 * @model default="No objective set for this process" required="true"
 	 * @generated
 	 */
 	String getObjective();

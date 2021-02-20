@@ -215,7 +215,7 @@ public class ProcessImpl extends MinimalEObjectImpl.Container implements xpdl.Pr
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (Objective: ");
+		result.append(" (objective: ");
 		result.append(objective);
 		result.append(')');
 		return result.toString();
