@@ -1,0 +1,37 @@
+module US2XPDL;
+
+-- @path US=/US2XPDL/US_model/US.ecore
+-- @path XPDL=/US2XPDL/XPDL_model/XPDL.ecore
+
+create OUT: XPDL from IN: US;
+
+rule ProductBacklog2Process { 
+	
+	from pb: US!ProductBacklog 
+	
+	to pr: XPDL!Process ( 
+		Objective <- pb.name
+		)	
+		
+}
+
+rule Goal2Pool {
+	
+	from goal: US!Goal
+	
+	to pool: XPDL!Pool (
+		Name <- goal.name
+		) 
+		
+}
+
+rule Role2Lane {
+	
+	from role: US!Role
+	
+	to lane: XPDL!Lane (
+		Name <- role.name
+		)
+	
+}
+	
