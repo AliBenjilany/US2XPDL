@@ -10,7 +10,7 @@ rule ProductBacklog2Process {
 	from pb: US!ProductBacklog 
 	
 	to pr: XPDL!Process ( 
-		Objective <- pb.name
+		objective <- pb.name
 		)	
 		
 }
@@ -20,7 +20,7 @@ rule Goal2Pool {
 	from goal: US!Goal
 	
 	to pool: XPDL!Pool (
-		Name <- goal.name
+		name <- goal.name
 		) 
 		
 }
@@ -30,7 +30,7 @@ rule Role2Lane {
 	from role: US!Role
 	
 	to lane: XPDL!Lane (
-		Name <- role.name
+		name <- role.name
 		)
 	
 }
