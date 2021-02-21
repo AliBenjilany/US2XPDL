@@ -4,16 +4,13 @@ package UserStories.util;
 
 import UserStories.Condition;
 import UserStories.Element;
-import UserStories.EndEvent;
 import UserStories.Event;
 import UserStories.Exclusive;
 import UserStories.Goal;
 import UserStories.Inclusive;
-import UserStories.IntermediateEvent;
 import UserStories.Parallel;
 import UserStories.ProductBacklog;
 import UserStories.Role;
-import UserStories.StartEvent;
 import UserStories.Task;
 import UserStories.UserStoriesPackage;
 import UserStories.UserStory;
@@ -123,33 +120,6 @@ public class UserStoriesSwitch<T> extends Switch<T> {
 				T result = caseEvent(event);
 				if (result == null) result = caseException(event);
 				if (result == null) result = caseElement(event);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case UserStoriesPackage.START_EVENT: {
-				StartEvent startEvent = (StartEvent)theEObject;
-				T result = caseStartEvent(startEvent);
-				if (result == null) result = caseEvent(startEvent);
-				if (result == null) result = caseException(startEvent);
-				if (result == null) result = caseElement(startEvent);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case UserStoriesPackage.INTERMEDIATE_EVENT: {
-				IntermediateEvent intermediateEvent = (IntermediateEvent)theEObject;
-				T result = caseIntermediateEvent(intermediateEvent);
-				if (result == null) result = caseEvent(intermediateEvent);
-				if (result == null) result = caseException(intermediateEvent);
-				if (result == null) result = caseElement(intermediateEvent);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case UserStoriesPackage.END_EVENT: {
-				EndEvent endEvent = (EndEvent)theEObject;
-				T result = caseEndEvent(endEvent);
-				if (result == null) result = caseEvent(endEvent);
-				if (result == null) result = caseException(endEvent);
-				if (result == null) result = caseElement(endEvent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -300,51 +270,6 @@ public class UserStoriesSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseEvent(Event object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Start Event</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Start Event</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseStartEvent(StartEvent object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Intermediate Event</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Intermediate Event</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIntermediateEvent(IntermediateEvent object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>End Event</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>End Event</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseEndEvent(EndEvent object) {
 		return null;
 	}
 

@@ -4,16 +4,13 @@ package UserStories.util;
 
 import UserStories.Condition;
 import UserStories.Element;
-import UserStories.EndEvent;
 import UserStories.Event;
 import UserStories.Exclusive;
 import UserStories.Goal;
 import UserStories.Inclusive;
-import UserStories.IntermediateEvent;
 import UserStories.Parallel;
 import UserStories.ProductBacklog;
 import UserStories.Role;
-import UserStories.StartEvent;
 import UserStories.Task;
 import UserStories.UserStoriesPackage;
 import UserStories.UserStory;
@@ -108,18 +105,6 @@ public class UserStoriesAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseEvent(Event object) {
 				return createEventAdapter();
-			}
-			@Override
-			public Adapter caseStartEvent(StartEvent object) {
-				return createStartEventAdapter();
-			}
-			@Override
-			public Adapter caseIntermediateEvent(IntermediateEvent object) {
-				return createIntermediateEventAdapter();
-			}
-			@Override
-			public Adapter caseEndEvent(EndEvent object) {
-				return createEndEventAdapter();
 			}
 			@Override
 			public Adapter caseCondition(Condition object) {
@@ -256,48 +241,6 @@ public class UserStoriesAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEventAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link UserStories.StartEvent <em>Start Event</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see UserStories.StartEvent
-	 * @generated
-	 */
-	public Adapter createStartEventAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link UserStories.IntermediateEvent <em>Intermediate Event</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see UserStories.IntermediateEvent
-	 * @generated
-	 */
-	public Adapter createIntermediateEventAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link UserStories.EndEvent <em>End Event</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see UserStories.EndEvent
-	 * @generated
-	 */
-	public Adapter createEndEventAdapter() {
 		return null;
 	}
 

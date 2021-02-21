@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UserStories:ProductBacklog xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:UserStories="http://userstories.com">
+  <userstories role="//@roles.0" goal="//@goals.0">
+    <elements xsi:type="UserStories:StartEvent" name="Debut" task="//@userstories.0/@elements.1"/>
+    <elements xsi:type="UserStories:Task" name="1 : Classer selon age"/>
+    <elements xsi:type="UserStories:Exclusive" name="Age" task="//@userstories.0/@elements.3 //@userstories.0/@elements.4 //@userstories.0/@elements.5"/>
+    <elements xsi:type="UserStories:Task" name="1.1 : Enfant"/>
+    <elements xsi:type="UserStories:Task" name="1.2 : Ado"/>
+    <elements xsi:type="UserStories:Task" name="1.3 : Adulte"/>
+  </userstories>
+  <userstories id="1" role="//@roles.1" goal="//@goals.0">
+    <elements xsi:type="UserStories:Task" name="2"/>
+  </userstories>
+  <userstories id="2" goal="//@goals.0"/>
+  <userstories id="3" goal="//@goals.0"/>
+  <userstories id="4" goal="//@goals.0"/>
+  <goals name="Gestion d'une demande"/>
+  <roles name="User"/>
+  <roles name="TeamMember"/>
+</UserStories:ProductBacklog>

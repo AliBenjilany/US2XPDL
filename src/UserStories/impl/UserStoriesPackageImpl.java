@@ -4,16 +4,13 @@ package UserStories.impl;
 
 import UserStories.Condition;
 import UserStories.Element;
-import UserStories.EndEvent;
 import UserStories.Event;
 import UserStories.Exclusive;
 import UserStories.Goal;
 import UserStories.Inclusive;
-import UserStories.IntermediateEvent;
 import UserStories.Parallel;
 import UserStories.ProductBacklog;
 import UserStories.Role;
-import UserStories.StartEvent;
 import UserStories.Task;
 import UserStories.UserStoriesFactory;
 import UserStories.UserStoriesPackage;
@@ -81,27 +78,6 @@ public class UserStoriesPackageImpl extends EPackageImpl implements UserStoriesP
 	 * @generated
 	 */
 	private EClass eventEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass startEventEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass intermediateEventEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass endEventEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -325,6 +301,26 @@ public class UserStoriesPackageImpl extends EPackageImpl implements UserStoriesP
 	 * @generated
 	 */
 	@Override
+	public EReference getTask_Next() {
+		return (EReference)taskEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getTask_Followed_by() {
+		return (EReference)taskEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getRole() {
 		return roleEClass;
 	}
@@ -385,7 +381,7 @@ public class UserStoriesPackageImpl extends EPackageImpl implements UserStoriesP
 	 * @generated
 	 */
 	@Override
-	public EReference getException_Task() {
+	public EReference getException_Followed_by() {
 		return (EReference)exceptionEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -397,36 +393,6 @@ public class UserStoriesPackageImpl extends EPackageImpl implements UserStoriesP
 	@Override
 	public EClass getEvent() {
 		return eventEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getStartEvent() {
-		return startEventEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getIntermediateEvent() {
-		return intermediateEventEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getEndEvent() {
-		return endEventEClass;
 	}
 
 	/**
@@ -522,6 +488,8 @@ public class UserStoriesPackageImpl extends EPackageImpl implements UserStoriesP
 
 		taskEClass = createEClass(TASK);
 		createEAttribute(taskEClass, TASK__NAME);
+		createEReference(taskEClass, TASK__NEXT);
+		createEReference(taskEClass, TASK__FOLLOWED_BY);
 
 		roleEClass = createEClass(ROLE);
 		createEAttribute(roleEClass, ROLE__NAME);
@@ -531,15 +499,9 @@ public class UserStoriesPackageImpl extends EPackageImpl implements UserStoriesP
 
 		exceptionEClass = createEClass(EXCEPTION);
 		createEAttribute(exceptionEClass, EXCEPTION__NAME);
-		createEReference(exceptionEClass, EXCEPTION__TASK);
+		createEReference(exceptionEClass, EXCEPTION__FOLLOWED_BY);
 
 		eventEClass = createEClass(EVENT);
-
-		startEventEClass = createEClass(START_EVENT);
-
-		intermediateEventEClass = createEClass(INTERMEDIATE_EVENT);
-
-		endEventEClass = createEClass(END_EVENT);
 
 		conditionEClass = createEClass(CONDITION);
 
@@ -583,9 +545,6 @@ public class UserStoriesPackageImpl extends EPackageImpl implements UserStoriesP
 		taskEClass.getESuperTypes().add(this.getElement());
 		exceptionEClass.getESuperTypes().add(this.getElement());
 		eventEClass.getESuperTypes().add(this.getException());
-		startEventEClass.getESuperTypes().add(this.getEvent());
-		intermediateEventEClass.getESuperTypes().add(this.getEvent());
-		endEventEClass.getESuperTypes().add(this.getEvent());
 		conditionEClass.getESuperTypes().add(this.getException());
 		inclusiveEClass.getESuperTypes().add(this.getCondition());
 		exclusiveEClass.getESuperTypes().add(this.getCondition());
@@ -606,6 +565,8 @@ public class UserStoriesPackageImpl extends EPackageImpl implements UserStoriesP
 
 		initEClass(taskEClass, Task.class, "Task", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTask_Name(), ecorePackage.getEString(), "name", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTask_Next(), this.getTask(), null, "next", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTask_Followed_by(), this.getException(), this.getException_Followed_by(), "followed_by", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(roleEClass, Role.class, "Role", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRole_Name(), ecorePackage.getEString(), "name", null, 1, 1, Role.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -615,15 +576,9 @@ public class UserStoriesPackageImpl extends EPackageImpl implements UserStoriesP
 
 		initEClass(exceptionEClass, UserStories.Exception.class, "Exception", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getException_Name(), ecorePackage.getEString(), "name", null, 0, 1, UserStories.Exception.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getException_Task(), this.getTask(), null, "task", null, 0, 1, UserStories.Exception.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getException_Followed_by(), this.getTask(), this.getTask_Followed_by(), "followed_by", null, 0, -1, UserStories.Exception.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(eventEClass, Event.class, "Event", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(startEventEClass, StartEvent.class, "StartEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(intermediateEventEClass, IntermediateEvent.class, "IntermediateEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(endEventEClass, EndEvent.class, "EndEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(eventEClass, Event.class, "Event", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(conditionEClass, Condition.class, "Condition", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

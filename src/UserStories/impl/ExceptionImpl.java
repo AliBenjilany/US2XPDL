@@ -4,11 +4,15 @@ package UserStories.impl;
 
 import UserStories.Task;
 import UserStories.UserStoriesPackage;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,7 +23,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link UserStories.impl.ExceptionImpl#getName <em>Name</em>}</li>
- *   <li>{@link UserStories.impl.ExceptionImpl#getTask <em>Task</em>}</li>
+ *   <li>{@link UserStories.impl.ExceptionImpl#getFollowed_by <em>Followed by</em>}</li>
  * </ul>
  *
  * @generated
@@ -46,14 +50,14 @@ public abstract class ExceptionImpl extends ElementImpl implements UserStories.E
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getTask() <em>Task</em>}' reference.
+	 * The cached value of the '{@link #getFollowed_by() <em>Followed by</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTask()
+	 * @see #getFollowed_by()
 	 * @generated
 	 * @ordered
 	 */
-	protected Task task;
+	protected EList<Task> followed_by;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -103,16 +107,11 @@ public abstract class ExceptionImpl extends ElementImpl implements UserStories.E
 	 * @generated
 	 */
 	@Override
-	public Task getTask() {
-		if (task != null && task.eIsProxy()) {
-			InternalEObject oldTask = (InternalEObject)task;
-			task = (Task)eResolveProxy(oldTask);
-			if (task != oldTask) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UserStoriesPackage.EXCEPTION__TASK, oldTask, task));
-			}
+	public EList<Task> getFollowed_by() {
+		if (followed_by == null) {
+			followed_by = new EObjectWithInverseResolvingEList<Task>(Task.class, this, UserStoriesPackage.EXCEPTION__FOLLOWED_BY, UserStoriesPackage.TASK__FOLLOWED_BY);
 		}
-		return task;
+		return followed_by;
 	}
 
 	/**
@@ -120,8 +119,14 @@ public abstract class ExceptionImpl extends ElementImpl implements UserStories.E
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Task basicGetTask() {
-		return task;
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case UserStoriesPackage.EXCEPTION__FOLLOWED_BY:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getFollowed_by()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -130,11 +135,12 @@ public abstract class ExceptionImpl extends ElementImpl implements UserStories.E
 	 * @generated
 	 */
 	@Override
-	public void setTask(Task newTask) {
-		Task oldTask = task;
-		task = newTask;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UserStoriesPackage.EXCEPTION__TASK, oldTask, task));
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case UserStoriesPackage.EXCEPTION__FOLLOWED_BY:
+				return ((InternalEList<?>)getFollowed_by()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -147,9 +153,8 @@ public abstract class ExceptionImpl extends ElementImpl implements UserStories.E
 		switch (featureID) {
 			case UserStoriesPackage.EXCEPTION__NAME:
 				return getName();
-			case UserStoriesPackage.EXCEPTION__TASK:
-				if (resolve) return getTask();
-				return basicGetTask();
+			case UserStoriesPackage.EXCEPTION__FOLLOWED_BY:
+				return getFollowed_by();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -166,8 +171,9 @@ public abstract class ExceptionImpl extends ElementImpl implements UserStories.E
 			case UserStoriesPackage.EXCEPTION__NAME:
 				setName((String)newValue);
 				return;
-			case UserStoriesPackage.EXCEPTION__TASK:
-				setTask((Task)newValue);
+			case UserStoriesPackage.EXCEPTION__FOLLOWED_BY:
+				getFollowed_by().clear();
+				getFollowed_by().addAll((Collection<? extends Task>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -184,8 +190,8 @@ public abstract class ExceptionImpl extends ElementImpl implements UserStories.E
 			case UserStoriesPackage.EXCEPTION__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case UserStoriesPackage.EXCEPTION__TASK:
-				setTask((Task)null);
+			case UserStoriesPackage.EXCEPTION__FOLLOWED_BY:
+				getFollowed_by().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -201,8 +207,8 @@ public abstract class ExceptionImpl extends ElementImpl implements UserStories.E
 		switch (featureID) {
 			case UserStoriesPackage.EXCEPTION__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case UserStoriesPackage.EXCEPTION__TASK:
-				return task != null;
+			case UserStoriesPackage.EXCEPTION__FOLLOWED_BY:
+				return followed_by != null && !followed_by.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

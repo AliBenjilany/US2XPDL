@@ -2,6 +2,8 @@
  */
 package UserStories;
 
+import org.eclipse.emf.common.util.EList;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Exception</b></em>'.
@@ -12,7 +14,7 @@ package UserStories;
  * </p>
  * <ul>
  *   <li>{@link UserStories.Exception#getName <em>Name</em>}</li>
- *   <li>{@link UserStories.Exception#getTask <em>Task</em>}</li>
+ *   <li>{@link UserStories.Exception#getFollowed_by <em>Followed by</em>}</li>
  * </ul>
  *
  * @see UserStories.UserStoriesPackage#getException()
@@ -43,25 +45,17 @@ public interface Exception extends Element {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Task</b></em>' reference.
+	 * Returns the value of the '<em><b>Followed by</b></em>' reference list.
+	 * The list contents are of type {@link UserStories.Task}.
+	 * It is bidirectional and its opposite is '{@link UserStories.Task#getFollowed_by <em>Followed by</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Task</em>' reference.
-	 * @see #setTask(Task)
-	 * @see UserStories.UserStoriesPackage#getException_Task()
-	 * @model
+	 * @return the value of the '<em>Followed by</em>' reference list.
+	 * @see UserStories.UserStoriesPackage#getException_Followed_by()
+	 * @see UserStories.Task#getFollowed_by
+	 * @model opposite="followed_by"
 	 * @generated
 	 */
-	Task getTask();
-
-	/**
-	 * Sets the value of the '{@link UserStories.Exception#getTask <em>Task</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Task</em>' reference.
-	 * @see #getTask()
-	 * @generated
-	 */
-	void setTask(Task value);
+	EList<Task> getFollowed_by();
 
 } // Exception

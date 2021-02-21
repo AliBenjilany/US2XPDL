@@ -2,15 +2,13 @@
  */
 package UserStories.impl;
 
-import UserStories.EndEvent;
+import UserStories.Event;
 import UserStories.Exclusive;
 import UserStories.Goal;
 import UserStories.Inclusive;
-import UserStories.IntermediateEvent;
 import UserStories.Parallel;
 import UserStories.ProductBacklog;
 import UserStories.Role;
-import UserStories.StartEvent;
 import UserStories.Task;
 import UserStories.UserStoriesFactory;
 import UserStories.UserStoriesPackage;
@@ -73,9 +71,7 @@ public class UserStoriesFactoryImpl extends EFactoryImpl implements UserStoriesF
 			case UserStoriesPackage.TASK: return createTask();
 			case UserStoriesPackage.ROLE: return createRole();
 			case UserStoriesPackage.GOAL: return createGoal();
-			case UserStoriesPackage.START_EVENT: return createStartEvent();
-			case UserStoriesPackage.INTERMEDIATE_EVENT: return createIntermediateEvent();
-			case UserStoriesPackage.END_EVENT: return createEndEvent();
+			case UserStoriesPackage.EVENT: return createEvent();
 			case UserStoriesPackage.INCLUSIVE: return createInclusive();
 			case UserStoriesPackage.EXCLUSIVE: return createExclusive();
 			case UserStoriesPackage.PARALLEL: return createParallel();
@@ -145,31 +141,9 @@ public class UserStoriesFactoryImpl extends EFactoryImpl implements UserStoriesF
 	 * @generated
 	 */
 	@Override
-	public StartEvent createStartEvent() {
-		StartEventImpl startEvent = new StartEventImpl();
-		return startEvent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public IntermediateEvent createIntermediateEvent() {
-		IntermediateEventImpl intermediateEvent = new IntermediateEventImpl();
-		return intermediateEvent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EndEvent createEndEvent() {
-		EndEventImpl endEvent = new EndEventImpl();
-		return endEvent;
+	public Event createEvent() {
+		EventImpl event = new EventImpl();
+		return event;
 	}
 
 	/**

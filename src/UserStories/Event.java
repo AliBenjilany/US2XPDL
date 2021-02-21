@@ -10,7 +10,7 @@ package UserStories;
  *
  *
  * @see UserStories.UserStoriesPackage#getEvent()
- * @model abstract="true"
+ * @model
  * @generated
  */
 public interface Event extends UserStories.Exception {

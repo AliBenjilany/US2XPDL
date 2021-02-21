@@ -19,6 +19,8 @@
     </genClasses>
     <genClasses ecoreClass="US.ecore#//Task">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute US.ecore#//Task/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference US.ecore#//Task/next"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference US.ecore#//Task/followed_by"/>
     </genClasses>
     <genClasses ecoreClass="US.ecore#//Role">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute US.ecore#//Role/name"/>
@@ -28,12 +30,9 @@
     </genClasses>
     <genClasses image="false" ecoreClass="US.ecore#//Exception">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute US.ecore#//Exception/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference US.ecore#//Exception/task"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference US.ecore#//Exception/followed_by"/>
     </genClasses>
     <genClasses ecoreClass="US.ecore#//Event"/>
-    <genClasses ecoreClass="US.ecore#//StartEvent"/>
-    <genClasses ecoreClass="US.ecore#//IntermediateEvent"/>
-    <genClasses ecoreClass="US.ecore#//EndEvent"/>
     <genClasses ecoreClass="US.ecore#//Condition"/>
     <genClasses ecoreClass="US.ecore#//Inclusive"/>
     <genClasses ecoreClass="US.ecore#//Exclusive"/>
