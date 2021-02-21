@@ -5,6 +5,16 @@ module US2XPDL;
 
 create OUT: XPDL from IN: US;
 
+helper context US!Event def: isfollowed(): Boolean=
+	if  self.followed_by then
+		true
+	else
+		false
+	endif;
+
+--helper context US!Event def: isfollowing(): Boolean=
+	--US!Task.AllInstances()->exists(t | t.followed_by->includes(self));
+
 rule ProductBacklog2Process { 
 	
 	from pb: US!ProductBacklog 
@@ -12,7 +22,7 @@ rule ProductBacklog2Process {
 	to pr: XPDL!Process ( 
 		objective <- pb.name
 		)	
-		
+			
 }
 
 rule Goal2Pool {
@@ -23,7 +33,8 @@ rule Goal2Pool {
 		name <- goal.name
 		) 
 		
-}
+}	
+
 
 rule Role2Lane {
 	
@@ -34,4 +45,50 @@ rule Role2Lane {
 		)
 	
 }
+
+rule Task2Task {
+	
+	from t: US!Task 
+	
+	to ta: XPDL!Task (
+		name <- t.name,
+		target <- t.next
+		)
+
+}
+
+--rule Event2EventStart{
+	
+	--from e: US!Event (not(e.isFollowing()))
+	
+	--to start: XPDL!EventStart (
+		--name <- e.name	
+	--)
+	
+--} 
+
+--rule Event2EventIntermediate{
+	
+	--from e: US!Event (e.isfollowing() and e.isfollowed())
+	
+	--to inter: XPDL!EventIntermediate (
+		--name <- e.name	
+	--)
+--}
+
+rule Event2EventEnd{
+	
+	from e: US!Event (not (e.isfollowed()))
+	
+	to end: XPDL!EventEnd (
+		name <- e.name	
+	)
+}
+
+
+
+
+
+--rule Condition2Gateway 
+
 	
