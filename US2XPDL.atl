@@ -6,14 +6,21 @@ module US2XPDL;
 create OUT: XPDL from IN: US;
 
 helper context US!Event def: isfollowed(): Boolean=
-	if  self.followed_by then
+	if  self.followed_by.notEmpty() then
 		true
 	else
 		false
 	endif;
 
---helper context US!Event def: isfollowing(): Boolean=
-	--US!Task.AllInstances()->exists(t | t.followed_by->includes(self));
+
+
+helper context US!Event def: isfollow(e:US!Event): Boolean= 
+	let allTasks : Sequence(US!Task) = US!Task.allInstances()->asSequence() in 
+	allTasks->exists(t | t.followed_by = e);
+
+
+
+
 
 rule ProductBacklog2Process { 
 	
@@ -57,28 +64,28 @@ rule Task2Task {
 
 }
 
---rule Event2EventStart{
+rule Event2EventStart{
 	
-	--from e: US!Event (not(e.isFollowing()))
+	from e: US!Event (not e.isfollow(e))
 	
-	--to start: XPDL!EventStart (
-		--name <- e.name	
-	--)
+	to start: XPDL!EventStart (
+		name <- e.name	
+	)
 	
---} 
+} 
 
---rule Event2EventIntermediate{
+rule Event2EventIntermediate{
 	
-	--from e: US!Event (e.isfollowing() and e.isfollowed())
+	from e: US!Event (e.isfollow(e) and e.isfollowed())
 	
-	--to inter: XPDL!EventIntermediate (
-		--name <- e.name	
-	--)
---}
+	to inter: XPDL!EventIntermediate (
+		name <- e.name	
+	)
+}
 
 rule Event2EventEnd{
 	
-	from e: US!Event (not (e.isfollowed()))
+	from e: US!Event (not e.isfollowed())
 	
 	to end: XPDL!EventEnd (
 		name <- e.name	
@@ -86,8 +93,6 @@ rule Event2EventEnd{
 }
 
 
-
- 
 
 --rule Condition2Gateway 
 
