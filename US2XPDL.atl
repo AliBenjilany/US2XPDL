@@ -16,9 +16,25 @@ helper context US!Event def: isfollowed(): Boolean=
 
 helper context US!Event def: isfollow(e:US!Event): Boolean= 
 	let allTasks : Sequence(US!Task) = US!Task.allInstances()->asSequence() in 
-	allTasks->exists(t | t.followed_by = e);
+	allTasks->exists(t | t.next = e);
 
 
+--helper def: getRoles : Set(US!Role)=
+	--let allUserStories : Sequence(US!UserStory) = US!UserStory.allInstances()->asSequence() in
+	--let allRoles: Set(US!Role) = allUserStories->first().role->asSet() in  
+	
+	--allUserStories->iterate(x ; y: US!Role=allUserStories->first().role |
+	
+	--allRoles->append(x.role)->asSet()
+	
+	--);
+
+helper context US!Condition def: isSplit(): Boolean=
+	if	self.followed_by.size()>1	then
+		true
+	else 
+		false
+	endif;
 
 
 
@@ -27,7 +43,9 @@ rule ProductBacklog2Process {
 	from pb: US!ProductBacklog 
 	
 	to pr: XPDL!Process ( 
-		objective <- pb.name
+		objective <- pb.name,
+		pool <- pb.goals
+		
 		)	
 			
 }
@@ -38,6 +56,7 @@ rule Goal2Pool {
 	
 	to pool: XPDL!Pool (
 		name <- goal.name
+		--lanes <- goal.userstories.role
 		) 
 		
 }	
@@ -49,6 +68,7 @@ rule Role2Lane {
 	
 	to lane: XPDL!Lane (
 		name <- role.name
+		--flowobject <- role.userstory.element
 		)
 	
 }
@@ -60,13 +80,15 @@ rule Task2Task {
 	to ta: XPDL!Task (
 		name <- t.name,
 		target <- t.next
+		
 		)
 
 }
 
+--EVENTS
 rule Event2EventStart{
 	
-	from e: US!Event (not e.isfollow(e))
+	from e: US!Event (e.isfollowed() and not e.isfollow(e) )
 	
 	to start: XPDL!EventStart (
 		name <- e.name	
@@ -76,7 +98,7 @@ rule Event2EventStart{
 
 rule Event2EventIntermediate{
 	
-	from e: US!Event (e.isfollow(e) and e.isfollowed())
+	from e: US!Event (e.isfollowed() and e.isfollow(e))
 	
 	to inter: XPDL!EventIntermediate (
 		name <- e.name	
@@ -85,15 +107,79 @@ rule Event2EventIntermediate{
 
 rule Event2EventEnd{
 	
-	from e: US!Event (not e.isfollowed())
+	from e: US!Event (not e.isfollowed() and e.isfollow(e))
 	
 	to end: XPDL!EventEnd (
 		name <- e.name	
 	)
 }
 
+--CONDITIONS
+rule Condition2InclusiveSplit {
+	from 
+		c: US!Inclusive
+	to
+		gw: XPDL!Inclusive(
+		name <- c.name,
+		split <- true
+		
+		)
+
+}
+
+rule Condition2InclusiveJoin {
+	from 
+		c: US!Inclusive (c.isSplit()) 
+	to
+		gw: XPDL!Inclusive(
+		name <- c.name,
+		split <- false
+		
+		)
+
+}
 
 
---rule Condition2Gateway 
+
+rule Condition2ExclusiveSplit {
+	from 
+		c: US!Exclusive(c.isSplit()) 
+	to
+		gw: XPDL!Exclusive(
+			name <- c.name,
+			split <- true
+			)
+}
+
+rule Condition2ExclusiveJoin {
+	from 
+		c: US!Exclusive(not c.isSplit())
+	to
+		gw: XPDL!Exclusive(
+			name <- c.name,
+			split <- false
+			)
+}
+
+
+rule Condition2ParallelSplit {
+	from 
+		c: US!Parallel(c.isSplit())
+	to
+		gw: XPDL!Parallel(
+			name <- c.name,
+			split <- true
+			)
+} 
+
+rule Condition2ParallelJoin {
+	from 
+		c: US!Parallel(not c.isSplit())
+	to
+		gw: XPDL!Parallel(
+			name <- c.name,
+			split <- false
+			)
+} 
 
 	
