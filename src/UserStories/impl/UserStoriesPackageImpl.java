@@ -311,16 +311,6 @@ public class UserStoriesPackageImpl extends EPackageImpl implements UserStoriesP
 	 * @generated
 	 */
 	@Override
-	public EReference getTask_Followed_by() {
-		return (EReference)taskEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getRole() {
 		return roleEClass;
 	}
@@ -489,7 +479,6 @@ public class UserStoriesPackageImpl extends EPackageImpl implements UserStoriesP
 		taskEClass = createEClass(TASK);
 		createEAttribute(taskEClass, TASK__NAME);
 		createEReference(taskEClass, TASK__NEXT);
-		createEReference(taskEClass, TASK__FOLLOWED_BY);
 
 		roleEClass = createEClass(ROLE);
 		createEAttribute(roleEClass, ROLE__NAME);
@@ -565,8 +554,7 @@ public class UserStoriesPackageImpl extends EPackageImpl implements UserStoriesP
 
 		initEClass(taskEClass, Task.class, "Task", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTask_Name(), ecorePackage.getEString(), "name", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTask_Next(), this.getTask(), null, "next", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTask_Followed_by(), this.getException(), this.getException_Followed_by(), "followed_by", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTask_Next(), this.getElement(), null, "next", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(roleEClass, Role.class, "Role", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRole_Name(), ecorePackage.getEString(), "name", null, 1, 1, Role.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -576,7 +564,7 @@ public class UserStoriesPackageImpl extends EPackageImpl implements UserStoriesP
 
 		initEClass(exceptionEClass, UserStories.Exception.class, "Exception", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getException_Name(), ecorePackage.getEString(), "name", null, 0, 1, UserStories.Exception.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getException_Followed_by(), this.getTask(), this.getTask_Followed_by(), "followed_by", null, 0, -1, UserStories.Exception.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getException_Followed_by(), this.getTask(), null, "followed_by", null, 0, -1, UserStories.Exception.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eventEClass, Event.class, "Event", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

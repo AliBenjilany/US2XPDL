@@ -14,19 +14,19 @@
     <genClasses ecoreClass="US.ecore#//UserStory">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute US.ecore#//UserStory/id"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference US.ecore#//UserStory/role"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference US.ecore#//UserStory/goal"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference US.ecore#//UserStory/elements"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference US.ecore#//UserStory/goal"/>
     </genClasses>
     <genClasses ecoreClass="US.ecore#//Task">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute US.ecore#//Task/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference US.ecore#//Task/next"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference US.ecore#//Task/followed_by"/>
     </genClasses>
     <genClasses ecoreClass="US.ecore#//Role">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute US.ecore#//Role/name"/>
     </genClasses>
     <genClasses ecoreClass="US.ecore#//Goal">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute US.ecore#//Goal/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference US.ecore#//Goal/userstories"/>
     </genClasses>
     <genClasses image="false" ecoreClass="US.ecore#//Exception">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute US.ecore#//Exception/name"/>

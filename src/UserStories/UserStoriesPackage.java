@@ -241,22 +241,13 @@ public interface UserStoriesPackage extends EPackage {
 	int TASK__NEXT = ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Followed by</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TASK__FOLLOWED_BY = ELEMENT_FEATURE_COUNT + 2;
-
-	/**
 	 * The number of structural features of the '<em>Task</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 3;
+	int TASK_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Task</em>' class.
@@ -760,17 +751,6 @@ public interface UserStoriesPackage extends EPackage {
 	EReference getTask_Next();
 
 	/**
-	 * Returns the meta object for the reference '{@link UserStories.Task#getFollowed_by <em>Followed by</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Followed by</em>'.
-	 * @see UserStories.Task#getFollowed_by()
-	 * @see #getTask()
-	 * @generated
-	 */
-	EReference getTask_Followed_by();
-
-	/**
 	 * Returns the meta object for class '{@link UserStories.Role <em>Role</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1036,14 +1016,6 @@ public interface UserStoriesPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TASK__NEXT = eINSTANCE.getTask_Next();
-
-		/**
-		 * The meta object literal for the '<em><b>Followed by</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TASK__FOLLOWED_BY = eINSTANCE.getTask_Followed_by();
 
 		/**
 		 * The meta object literal for the '{@link UserStories.impl.RoleImpl <em>Role</em>}' class.

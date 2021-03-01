@@ -14,26 +14,27 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="role" lowerBound="1" eType="#//Role"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="goal" lowerBound="1" eType="#//Goal"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" lowerBound="1"
         upperBound="-1" eType="#//Element" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="goal" lowerBound="1" eType="#//Goal"
+        eOpposite="#//Goal/userstories"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="#//Element">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="next" eType="#//Task"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="followed_by" eType="#//Exception"
-        eOpposite="#//Exception/followed_by"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="next" eType="#//Element"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Role">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Goal">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="userstories" lowerBound="1"
+        upperBound="-1" eType="#//UserStory" eOpposite="#//UserStory/goal"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Exception" abstract="true" eSuperTypes="#//Element">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="followed_by" upperBound="-1"
-        eType="#//Task" eOpposite="#//Task/followed_by"/>
+        eType="#//Task"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Event" eSuperTypes="#//Exception"/>
   <eClassifiers xsi:type="ecore:EClass" name="Condition" abstract="true" eSuperTypes="#//Exception"/>

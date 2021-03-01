@@ -47,13 +47,11 @@ public interface Exception extends Element {
 	/**
 	 * Returns the value of the '<em><b>Followed by</b></em>' reference list.
 	 * The list contents are of type {@link UserStories.Task}.
-	 * It is bidirectional and its opposite is '{@link UserStories.Task#getFollowed_by <em>Followed by</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Followed by</em>' reference list.
 	 * @see UserStories.UserStoriesPackage#getException_Followed_by()
-	 * @see UserStories.Task#getFollowed_by
-	 * @model opposite="followed_by"
+	 * @model
 	 * @generated
 	 */
 	EList<Task> getFollowed_by();

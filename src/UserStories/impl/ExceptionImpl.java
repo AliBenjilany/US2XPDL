@@ -6,13 +6,10 @@ import UserStories.Task;
 import UserStories.UserStoriesPackage;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -109,38 +106,9 @@ public abstract class ExceptionImpl extends ElementImpl implements UserStories.E
 	@Override
 	public EList<Task> getFollowed_by() {
 		if (followed_by == null) {
-			followed_by = new EObjectWithInverseResolvingEList<Task>(Task.class, this, UserStoriesPackage.EXCEPTION__FOLLOWED_BY, UserStoriesPackage.TASK__FOLLOWED_BY);
+			followed_by = new EObjectResolvingEList<Task>(Task.class, this, UserStoriesPackage.EXCEPTION__FOLLOWED_BY);
 		}
 		return followed_by;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case UserStoriesPackage.EXCEPTION__FOLLOWED_BY:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getFollowed_by()).basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case UserStoriesPackage.EXCEPTION__FOLLOWED_BY:
-				return ((InternalEList<?>)getFollowed_by()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
